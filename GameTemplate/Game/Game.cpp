@@ -26,4 +26,12 @@ bool Game::Start()
 
 void Game::Update()
 {
+	CQuaternion qAddrot;
+	qAddrot.SetRotationDeg(
+		{ 0.0f,1.0f,0.0f },
+		5.0f
+	);
+
+	m_rotation *= qAddrot;
+	m_skinModelRender->SetRotation(m_rotation);
 }
