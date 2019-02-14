@@ -4,6 +4,7 @@
 
 Game::Game()
 {
+	NewGO<Hoge>(0);
 }
 
 

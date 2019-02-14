@@ -3,6 +3,7 @@
 #include "tkEngine/graphics/effect/tkEffect.h"
 #include "tkEngine/physics/tkPhysicsGhostObject.h"
 #include "tkEngine/character/tkCharacterController.h"
+#include "Hoge.h"
 
 class Game : public IGameObject
 {
