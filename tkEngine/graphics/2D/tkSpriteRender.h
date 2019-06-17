@@ -66,6 +66,10 @@ namespace tkEngine {
 			{
 				m_sprite.SetMulColor(mulColor);
 			}
+			void SetScale(CVector3 scale)
+			{
+				m_scale = scale;
+			}
 		public:
 			void Update() override final;
 			void ForwardRender(CRenderContext& rc)override final;

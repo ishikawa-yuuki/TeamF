@@ -3,6 +3,7 @@
  */
 #include "stdafx.h"
 #include "Game.h"
+#include "Title.h"
 
 namespace {
 	/*!
@@ -72,7 +73,7 @@ namespace {
 		//ディザ
 		initParam.graphicsConfing.ditheringConfig.isEnable = false;
 		//dof
-		initParam.graphicsConfing.dofConfig.isEnable = true;
+		initParam.graphicsConfing.dofConfig.isEnable = false;
 	}
 	/*!
 	*@brief	高スペックPC向けにtkEngineのConfigを設定する。
@@ -135,7 +136,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 	//エンジンを初期化。
 	if (Engine().Init(initParam) == true) {
-		NewGO<Game>(0, nullptr);
+		NewGO<Title>(0);
 		//ゲームループを実行。
 		Engine().RunGameLoop();
 	}
