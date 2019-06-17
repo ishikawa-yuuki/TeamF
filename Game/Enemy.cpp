@@ -32,7 +32,7 @@ void Enemy::Update()
 	CVector3 diff = m_player->m_position - m_position;
 	if (diff.Length() < 3000.0f) {
 		diff.Normalize();
-		diff *= 20.0f;
+		diff *= 15.0f;
 		m_position += diff;
 		m_Modelrender->SetPosition(m_position);
 	}
@@ -40,7 +40,7 @@ void Enemy::Update()
 	if (diff.Length() < 1000.0f && m_timer >= 20) {
 		Bullet* bullet = NewGO<Bullet>(0, "Ebullet");
 		bullet->m_position = m_position;
-		bullet->m_movespeed.z = -40.0f;
+		bullet->m_movespeed.z = -30.0f;
 		m_sound = NewGO<prefab::CSoundSource>(0);
 		m_sound->Init(L"sound/shoot.wav");
 		m_sound->SetVolume(0.05f);

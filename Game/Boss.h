@@ -7,7 +7,7 @@ public:
 	~Boss();
 	bool Start();
 	void Update();
-	int BossHP = 3;
+	int BossHP = 20;
 	int m_timer = 0;
 	Player *m_player;
 	prefab::CSoundSource* m_sound;

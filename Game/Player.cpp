@@ -48,7 +48,7 @@ void Player::Update()
 	if (Pad(0).IsPress(enButtonA)&& m_timer >= 10) {
 		Bullet* bullet = NewGO<Bullet>(0, "Pbullet");
 		bullet->m_position = m_position;
-		bullet->m_movespeed.z = 40.0f;
+		bullet->m_movespeed.z = 30.0f;
 		m_sound = NewGO<prefab::CSoundSource>(0);
 		m_sound->Init(L"sound/shoot.wav");
 		m_sound->Play(false);
