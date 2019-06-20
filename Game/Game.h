@@ -34,20 +34,24 @@ public:
 	Player * m_player;
 	
 	Camera * m_camera;
-	Bullet * m_bullet;
+	Bullet* m_bullet;
 	Boss* m_boss;
 	CLevel m_level;
 	int gekihacount = 0;
 	int Over = false;
 	int Clear = false;
 	int Ctime = 0;
-	int timer = 0;
+	int timer = 10;
+	int time = 30;
+	int m_timer = 0;
+	int m_score = 0;
 	int HP = 20;
 	float Nhp = 20;
 	float Bossgekiha = 0;
 	CFont m_font;
 	prefab::CSoundSource* m_sound;
 	CVector4 m_color = CVector4::Yellow;
+	CVector4 m_colo = CVector4::Black;
 	CVector3 m_position = CVector3::Zero;
 	prefab::CSky* m_sky = nullptr;
 	prefab::CSpriteRender*m_spriteRender = nullptr;
