@@ -66,6 +66,44 @@ void Game::OnDestroy()
 
 void Game::PostRender(CRenderContext& rc)
 {
+	m_timer++;
+	if (m_timer == 60)
+	{
+		time--;
+		m_timer = 0;
+	}
+
+	wchar_t text[256];
+
+	swprintf(text, L"残り時間\n%d", time);
+
+
+	m_font.Begin(rc);
+	m_font.Draw(
+		text,
+		{ -550.0f,300.0f },
+		m_color
+	);
+	m_font.End(rc);
+
+
+	swprintf(text, L"スコア\n%d", m_score);
+	m_font.Begin(rc);
+	m_font.Draw(
+		text,
+		{ 450.0f,300.0f },
+		m_color
+	);
+	m_font.End(rc);
+
+	swprintf(text, L"\n%d", HP);
+	m_font.Begin(rc);
+	m_font.Draw(
+		text,
+		{ -450.0f,-300.0f },
+		m_colo
+	);
+	m_font.End(rc);
 
 }
 

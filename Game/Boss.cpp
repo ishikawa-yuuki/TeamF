@@ -91,6 +91,7 @@ void Boss::Update()
 		v.z = 0.5f;
 		m_effect->SetScale(v);
 		game->Bossgekiha++;
+		game->m_score += 300;
 		DeleteGO(this);
 		DeleteGO("Pbullet");
 	}
