@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "Title.h"
 #include "tkEngine/light/tkDirectionLight.h"
+#include "Help.h"
 
 const float SKY_TYOKKEI = 10000.0f; //ãÛÇÃíºåaÅB
 Game::Game()
@@ -55,7 +56,6 @@ bool Game::Start()
 	m_lig = NewGO<prefab::CDirectionLight>(0);
 	m_lig->SetDirection(m_lightDir);
 	m_lig->SetColor({ 0.5f,0.5f,0.5f,1.0f });
-
 	return true;
 }
 
