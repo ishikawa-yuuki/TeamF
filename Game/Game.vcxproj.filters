@@ -29,6 +29,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Help.cpp" />
+    <ClCompile Include="Result.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -43,6 +44,7 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Help.h" />
+    <ClInclude Include="Result.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -89,6 +91,9 @@
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\sprite\sousa.png">
+      <Filter>Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\result.png">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
   </ItemGroup>

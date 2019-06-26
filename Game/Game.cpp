@@ -3,7 +3,8 @@
 #include "Title.h"
 #include "tkEngine/light/tkDirectionLight.h"
 #include "Help.h"
-
+#include "Result.h"
+#include "Boss.h"
 const float SKY_TYOKKEI = 10000.0f; //空の直径。
 Game::Game()
 {
@@ -73,6 +74,7 @@ void Game::PostRender(CRenderContext& rc)
 		m_timer = 0;
 	}
 
+	
 	wchar_t text[256];
 
 	swprintf(text, L"残り時間\n%d", time);
@@ -86,16 +88,15 @@ void Game::PostRender(CRenderContext& rc)
 	);
 	m_font.End(rc);
 
-
 	swprintf(text, L"スコア\n%d", m_score);
 	m_font.Begin(rc);
 	m_font.Draw(
 		text,
-		{ 450.0f,300.0f },
+		{ 450.0f,300.0f},
 		m_color
 	);
 	m_font.End(rc);
-
+	
 	swprintf(text, L"\n%d", HP);
 	m_font.Begin(rc);
 	m_font.Draw(
@@ -112,8 +113,8 @@ void Game::Update()
 	if (Clear == false && Over == false) {
 		if (Pad(0).IsPress(enButtonSelect) == true)
 		{
-			NewGO<Title>(0);
-			DeleteGO(this);
+				DeleteGO(this);
+				NewGO<Title>(0);
 		}
 		if (Nhp <= 0) {
 			Over = true;
@@ -123,25 +124,30 @@ void Game::Update()
 			m_spriteRender = NewGO<prefab::CSpriteRender>(0);
 			m_spriteRender->Init(L"sprite/gameover.dds", 1280.0f, 720.0f);
 			timer++;
-			if (timer == 30) {
-				NewGO<Title>(0);
+			if (timer == 60) {
 				DeleteGO(this);
+				NewGO<Result>(0);
 			}
 		}
-		if (gekihacount >= 10 && Bossgekiha >= 1) {
+		if (gekihacount >= 10 ) {
 			Clear = true;
 			m_sound = NewGO<prefab::CSoundSource>(0);
 			m_sound->Init(L"sound/clea.wav");
 			m_sound->Play(false);
 			m_spriteRender = NewGO<prefab::CSpriteRender>(0);
 			m_spriteRender->Init(L"sprite/GameClear.dds", 1280.0f, 720.0f);
+			timer++;
+			if (timer == 60)
+			{
+				NewGO<Result>(0);
+				DeleteGO(this);
 			}
-	}
-	else {
-		timer++;
-		if (timer == 30) {
-			NewGO<Title>(0);
-			DeleteGO(this);
 		}
+	}
+	else if (m_timer == 30)
+	{
+		DeleteGO(this);
+		NewGO<Result>(0);
+	
 	}
 }
