@@ -8,10 +8,11 @@ Game::Game()
 {
 	m_sky = NewGO<prefab::CSky>(0);
 	m_sky->SetScale({ SKY_TYOKKEI, SKY_TYOKKEI, SKY_TYOKKEI });
-
 	m_camera = NewGO<Camera>(0);
 	m_player = NewGO<Player>(0, "Player");
-	m_boss = NewGO<Boss>(0);
+	m_boss = NewGO<Boss>(0,"Boss");
+	m_item = NewGO<Item>(0);
+	m_power = NewGO<PowerItem>(0);
 }
 
 
@@ -24,8 +25,10 @@ Game::~Game()
 	DeleteGO(m_player);
 	DeleteGO(m_sky);
 	DeleteGO(m_boss);
+	//DeleteGO(m_item);
 	DeleteGO(m_spriteRender);
 	DeleteGO(m_player->m_hp);
+	//DeleteGO(m_power);
 	QueryGOs<Bullet>("Pbullet", [](Bullet* bullet)->bool
 	{
 		DeleteGO(bullet);

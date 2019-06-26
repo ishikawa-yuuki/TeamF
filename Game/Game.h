@@ -8,6 +8,8 @@
 #include "Enemy.h"
 #include "Bullet.h"
 #include "Boss.h"
+#include "Item.h"
+#include "PowerItem.h"
 class Game : public IGameObject
 {
 public:
@@ -32,10 +34,11 @@ public:
 	CVector3 m_lightDir;
 	std::vector<Enemy*> m_enemyList;
 	Player * m_player;
-	
+	PowerItem* m_power;
 	Camera * m_camera;
 	Bullet* m_bullet;
 	Boss* m_boss;
+	Item* m_item;
 	CLevel m_level;
 	int gekihacount = 0;
 	int Over = false;
