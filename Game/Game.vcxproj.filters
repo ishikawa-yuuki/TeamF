@@ -30,6 +30,7 @@
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="PowerItem.cpp" />
+    <ClCompile Include="Help.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -45,6 +46,7 @@
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="PowerItem.h" />
+    <ClInclude Include="Help.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -94,6 +96,9 @@
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\sprite\gezikaba.png">
+      <Filter>Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\sousa.png">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
   </ItemGroup>

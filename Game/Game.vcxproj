@@ -1767,6 +1767,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Help.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -1800,6 +1801,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="Help.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PowerItem.h" />
     <CLInclude Include="resource.h" />
@@ -1844,6 +1846,9 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\gezi.png" />
     <ImageContentTask Include="Assets\sprite\gezikaba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\sousa.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,7 +4,6 @@
 #include "stdafx.h"
 #include "Game.h"
 #include "Title.h"
-
 namespace {
 	/*!
 	*@brief	低スペックPC向けにtkEngineのConfigを設定する。
