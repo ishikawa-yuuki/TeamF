@@ -3,6 +3,16 @@
 #include "Game.h"
 #include "Help.h"
 
+const static int Game_Y = -10.0f;
+const static int Config_Y = -70.0f;
+
+typedef enum {
+	Menu_Game,
+	Menu_config,
+	Menu_Num,
+}Menu;
+
+static int NowSelect = Menu_Game;
 
 Title::Title()
 {
@@ -27,7 +37,7 @@ bool Title::Start()
 
 void Title::Update()
 {
-	if (Pad(0).IsPress(enButtonA) == true) {
+	/*if (Pad(0).IsPress(enButtonA) == true) {
 		DeleteGO(m_sound);
 		DeleteGO(this);
 		NewGO<Game>(0, "Game");
@@ -36,24 +46,71 @@ void Title::Update()
 	{
 		DeleteGO(this);
 		NewGO<Help>(0);
+	}*/
+	if (Pad(0).IsTrigger(enButtonDown) == true) {
+		NowSelect = (NowSelect + 1) % Menu_Num;
 	}
-	
+	if (Pad(0).IsTrigger(enButtonUp) == true)
+	{
+		NowSelect = (NowSelect + (Menu_Num - 1)) % Menu_Num;
+	}
+	if (Pad(0).IsPress(enButtonA) == true) {
+		switch (NowSelect)
+		{
+		case Menu_Game:
+			DeleteGO(m_sound);
+			DeleteGO(this);
+			NewGO<Game>(0, "Game");
+			break;
+		case Menu_config:
+			DeleteGO(m_sound);
+			DeleteGO(this);
+			NewGO<Help>(0);
+			break;
+		}
+	}
+
 }
 void Title::PostRender(CRenderContext& rc)
 {
+
 	m_select.Begin(rc);
-	const wchar_t* select =
-		L"ゲームスタートはＡボタンを押してね\n"
-		"\n"
-		L"ヘルプはBボタを押してね\n"
-		"\n"
-		L"クレジットは\n";
+	const wchar_t* Start =
+		L"ゲームスタート\n";
 	m_select.Draw(
-		select,
-		{ -250.0f, -10.0f },
+		Start,
+		{ -50.0f, -10.0f },
 		CVector4::White,
 		0.0f,
 		1.1f
 	);
+
+	const wchar_t* Config =
+		L"ヘルプ\n";
+	m_select.Draw(
+		Config,
+		{ -50.0f, -70.0f },
+		CVector4::White,
+		0.0f,
+		1.1f
+	);
+
+	const wchar_t* Sirusi =
+		L">\n";
+	m_select.Draw(Sirusi,
+		{ -240.0f, -10.0f },
+		CVector4::Black,
+		0.0f,
+		1.0f);
 	m_select.End(rc);
+	int y = 0;
+	switch (NowSelect) {//現在の選択状態に従って処理を分岐
+	case Menu_Game://ゲーム選択中なら
+		y = Game_Y;    //ゲームの座標を格納
+		break;
+	case Menu_config://設定選択中なら
+		y = Config_Y;    //設定の座標を格納
+		break;
+	}
+	
 }
