@@ -30,7 +30,6 @@
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="PowerItem.cpp" />
-    <ClCompile Include="Help.cpp" />
     <ClCompile Include="Result.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -47,7 +46,6 @@
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="PowerItem.h" />
-    <ClInclude Include="Help.h" />
     <ClInclude Include="Result.h" />
   </ItemGroup>
   <ItemGroup>

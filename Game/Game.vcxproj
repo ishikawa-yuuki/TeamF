@@ -1767,7 +1767,6 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Help.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -1802,7 +1801,6 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="Help.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PowerItem.h" />
     <CLInclude Include="resource.h" />
