@@ -6,7 +6,7 @@
 PowerItem::PowerItem()
 {
 	m_modelrender = NewGO<prefab::CSkinModelRender>(0);
-	m_modelrender->Init(L"modelData/ATK.cmo");
+	m_modelrender->Init(L"modelData/Tama.cmo");
 	m_position.x = -200.0f;
 	m_position.z = 700.0f;
 	m_modelrender->SetPosition(m_position);

@@ -69,10 +69,10 @@
     <MeshContentTask Include="Assets\modelData\BOSS.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\kaihuku.fbx">
+    <MeshContentTask Include="Assets\modelData\Tama.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\ATK.fbx">
+    <MeshContentTask Include="Assets\modelData\box.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>
