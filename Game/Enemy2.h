@@ -1,7 +1,7 @@
 #pragma once
 #include "Player.h"
-
-class Enemy2 :public IGameObject
+#include "Bullet.h"
+class Enemy2 : public IGameObject
 {
 public:
 	Enemy2();
