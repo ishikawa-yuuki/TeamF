@@ -132,7 +132,7 @@ void Game::Update()
 				NewGO<Result>(0);
 			}
 		}
-		if (gekihacount >= 10 ) {
+		if (gekihacount >= 10 && Bossgekiha >= 1 ) {
 			Clear = true;
 			m_sound = NewGO<prefab::CSoundSource>(0);
 			m_sound->Init(L"sound/clea.wav");

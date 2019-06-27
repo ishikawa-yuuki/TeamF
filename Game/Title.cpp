@@ -32,6 +32,7 @@ bool Title::Start()
 	m_sound = NewGO<prefab::CSoundSource>(0);
 	m_sound->Init(L"sound/loop2.wav");
 	m_sound->Play(true);
+	
 	return true;
 }
 
@@ -70,28 +71,6 @@ void Title::Update()
 			break;
 		}
 	}
-
-
-	if (Pad(0).IsTrigger(enButtonDown) == true) {//下キーが押されていたら選択状態を一つ下げる
-		const wchar_t* Sirusi =
-			L">\n";
-		m_select.Draw(Sirusi,
-			{ -240.0f, -10.0f },
-			CVector4::Black,
-			0.0f,
-			1.0f);
-	}
-	if (Pad(0).IsTrigger(enButtonUp) == true) {//上キーが押されていたら選択状態を一つ上げる 
-		const wchar_t* Sirusi =
-			L">\n";
-		m_select.Draw(Sirusi,
-			{ -240.0f, -10.0f },
-			CVector4::Black,
-			0.0f,
-			1.0f);
-
-	}
-
 }
 void Title::PostRender(CRenderContext& rc)
 {
@@ -116,8 +95,13 @@ void Title::PostRender(CRenderContext& rc)
 		0.0f,
 		1.1f
 	);
-
-	
+	const wchar_t* Sirusi =
+		L">\n";
+	m_select.Draw(Sirusi,
+		{ -240.0f, -10.0f },
+		CVector4::Black,
+		0.0f,
+		1.0f);
 	m_select.End(rc);
 
 	int y = 0;

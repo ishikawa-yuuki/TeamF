@@ -69,10 +69,15 @@ void Player::Update()
 		}
 		return true;
 	});
-
 	m_movespeed.x = Pad(0).GetLStickXF() * 600.0f;
 	m_movespeed.z = Pad(0).GetLStickYF() * 600.0f;
 	m_position = m_chracon.Execute(m_movespeed);
 
 	m_skinmodelrender->SetPosition(m_position);
+	Game* game = FindGO<Game>("Game");
+	if (game->Nhp = 50)
+	{
+		m_hp = NewGO<prefab::CSpriteRender>(0);
+		m_hp->Init(L"sprite / gezi.dds", 400.0f, 40.0f);
+	}
 }
