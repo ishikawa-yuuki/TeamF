@@ -17,6 +17,5 @@ public:
 	CVector3 m_movespeed = CVector3::Zero;
 	CQuaternion m_rotation = CQuaternion::Identity;
 	CVector3 m_scale = CVector3::One;
-{
 };
 
