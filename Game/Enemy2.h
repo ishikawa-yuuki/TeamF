@@ -1,7 +1,7 @@
 #pragma once
 #include "Player.h"
-
-class Enemy2 :public IGameObject
+#include "Bullet.h"
+class Enemy2 : public IGameObject
 {
 public:
 	Enemy2();
@@ -17,6 +17,5 @@ public:
 	CVector3 m_movespeed = CVector3::Zero;
 	CQuaternion m_rotation = CQuaternion::Identity;
 	CVector3 m_scale = CVector3::One;
-{
 };
 

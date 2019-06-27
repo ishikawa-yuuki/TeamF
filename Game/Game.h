@@ -10,6 +10,7 @@
 #include "Boss.h"
 #include "Item.h"
 #include "PowerItem.h"
+#include "Camera.h"
 class Game : public IGameObject
 {
 public:
