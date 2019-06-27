@@ -35,7 +35,7 @@ public:
 	std::vector<Enemy*> m_enemyList;
 	Player * m_player;
 	PowerItem* m_power;
-	Camera * m_camera;
+	Camera* m_camera;
 	Bullet* m_bullet;
 	Boss* m_boss;
 	Item* m_item;
