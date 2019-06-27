@@ -3,13 +3,13 @@
 #include "Game.h"
 #include "Help.h"
 
-const static int Game_Y = -10.0f;
-const static int Config_Y = -70.0f;
+const static int Game_Y = -10.0f;   //ゲーム文字のyの位置
+const static int Config_Y = -70.0f; //設定文字のyの位置
 
 typedef enum {
-	Menu_Game,
-	Menu_config,
-	Menu_Num,
+	Menu_Game,     //ゲーム
+	Menu_config,   //設定
+	Menu_Num,      //項目の数
 }Menu;
 
 static int NowSelect = Menu_Game;
@@ -47,27 +47,49 @@ void Title::Update()
 		DeleteGO(this);
 		NewGO<Help>(0);
 	}*/
-	if (Pad(0).IsTrigger(enButtonDown) == true) {
-		NowSelect = (NowSelect + 1) % Menu_Num;
+	if (Pad(0).IsTrigger(enButtonDown) == true) {//下キーが押されていたら選択状態を一つ下げる
+		NowSelect = (NowSelect + 1) % Menu_Num;  
+		
 	}
-	if (Pad(0).IsTrigger(enButtonUp) == true)
-	{
-		NowSelect = (NowSelect + (Menu_Num - 1)) % Menu_Num;
+	if (Pad(0).IsTrigger(enButtonUp) == true){//上キーが押されていたら選択状態を一つ上げる 
+		NowSelect = (NowSelect + (Menu_Num - 1)) % Menu_Num; 
+		
 	}
-	if (Pad(0).IsPress(enButtonA) == true) {
-		switch (NowSelect)
+	if (Pad(0).IsPress(enButtonA) == true) {//エンターキーが押されていたら
+		switch (NowSelect)                  //現在選択中の状態によって処理を分岐
 		{
-		case Menu_Game:
+		case Menu_Game://ゲーム選択中なら
 			DeleteGO(m_sound);
 			DeleteGO(this);
-			NewGO<Game>(0, "Game");
+			NewGO<Game>(0, "Game");//ゲーム画面に
 			break;
-		case Menu_config:
+		case Menu_config://設定画面中なら
 			DeleteGO(m_sound);
-			DeleteGO(this);
-			NewGO<Help>(0);
+			DeleteGO(this);  
+			NewGO<Help>(0);      //設定画面に
 			break;
 		}
+	}
+
+
+	if (Pad(0).IsTrigger(enButtonDown) == true) {//下キーが押されていたら選択状態を一つ下げる
+		const wchar_t* Sirusi =
+			L">\n";
+		m_select.Draw(Sirusi,
+			{ -240.0f, -10.0f },
+			CVector4::Black,
+			0.0f,
+			1.0f);
+	}
+	if (Pad(0).IsTrigger(enButtonUp) == true) {//上キーが押されていたら選択状態を一つ上げる 
+		const wchar_t* Sirusi =
+			L">\n";
+		m_select.Draw(Sirusi,
+			{ -240.0f, -10.0f },
+			CVector4::Black,
+			0.0f,
+			1.0f);
+
 	}
 
 }
@@ -95,14 +117,9 @@ void Title::PostRender(CRenderContext& rc)
 		1.1f
 	);
 
-	const wchar_t* Sirusi =
-		L">\n";
-	m_select.Draw(Sirusi,
-		{ -240.0f, -10.0f },
-		CVector4::Black,
-		0.0f,
-		1.0f);
+	
 	m_select.End(rc);
+
 	int y = 0;
 	switch (NowSelect) {//現在の選択状態に従って処理を分岐
 	case Menu_Game://ゲーム選択中なら
