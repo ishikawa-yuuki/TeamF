@@ -30,8 +30,8 @@
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="PowerItem.cpp" />
-    <ClCompile Include="Help.cpp" />
     <ClCompile Include="Result.cpp" />
+    <ClCompile Include="Enemy2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -47,8 +47,8 @@
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="PowerItem.h" />
-    <ClInclude Include="Help.h" />
     <ClInclude Include="Result.h" />
+    <ClInclude Include="Enemy2.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -71,10 +71,13 @@
     <MeshContentTask Include="Assets\modelData\BOSS.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\kaihuku.fbx">
+    <MeshContentTask Include="Assets\modelData\Tama.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\ATK.fbx">
+    <MeshContentTask Include="Assets\modelData\box.fbx">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\ene.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>
