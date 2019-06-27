@@ -32,6 +32,7 @@
     <ClCompile Include="PowerItem.cpp" />
     <ClCompile Include="Result.cpp" />
     <ClCompile Include="Enemy2.cpp" />
+    <ClCompile Include="Help.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -49,6 +50,7 @@
     <ClInclude Include="PowerItem.h" />
     <ClInclude Include="Result.h" />
     <ClInclude Include="Enemy2.h" />
+    <ClInclude Include="Help.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">

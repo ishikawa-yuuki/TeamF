@@ -1768,6 +1768,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy2.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Help.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -1802,6 +1803,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy2.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Help.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PowerItem.h" />
