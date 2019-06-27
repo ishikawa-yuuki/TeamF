@@ -11,6 +11,7 @@ Game::Game()
 	m_sky = NewGO<prefab::CSky>(0);
 	m_sky->SetScale({ SKY_TYOKKEI, SKY_TYOKKEI, SKY_TYOKKEI });
 	m_camera = NewGO<Camera>(0);
+	m_enemy2 = NewGO<Enemy2>(0, "Enemy2");
 	m_player = NewGO<Player>(0, "Player");
 	m_boss = NewGO<Boss>(0,"Boss");
 	m_item = NewGO<Item>(0);
@@ -24,6 +25,7 @@ Game::~Game()
 		DeleteGO(m_enemy);
 	}
 	DeleteGO(m_camera);
+	DeleteGO(m_enemy2);
 	DeleteGO(m_player);
 	DeleteGO(m_sky);
 	DeleteGO(m_boss);

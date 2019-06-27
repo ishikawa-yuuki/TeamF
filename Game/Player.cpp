@@ -74,10 +74,10 @@ void Player::Update()
 	m_position = m_chracon.Execute(m_movespeed);
 
 	m_skinmodelrender->SetPosition(m_position);
-	Game* game = FindGO<Game>("Game");
+	/*Game* game = FindGO<Game>("Game");
 	if (game->Nhp == 20)
 	{
 		m_hp = NewGO<prefab::CSpriteRender>(0);
-		m_hp->Init(L"sprite / gezi.dds", 400.0f, 40.0f);
-	}
+		m_hp->Init(L"Assets/sprite/gezi.dds", 400.0f, 40.0f);
+	}*/
 }

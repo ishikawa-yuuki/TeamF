@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Camera.h"
 #include "Enemy.h"
+#include "Enemy2.h"
 #include "Bullet.h"
 #include "Boss.h"
 #include "Item.h"
@@ -33,7 +34,8 @@ public:
 	prefab::CDirectionLight*m_lig;
 	CVector3 m_lightDir;
 	std::vector<Enemy*> m_enemyList;
-	Player * m_player;
+	Enemy2* m_enemy2;
+	Player* m_player;
 	PowerItem* m_power;
 	Camera* m_camera;
 	Bullet* m_bullet;

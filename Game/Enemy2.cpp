@@ -8,7 +8,7 @@ Enemy2::Enemy2()
 {
 	m_Modelrender = NewGO<prefab::CSkinModelRender>(0);
 	m_Modelrender->Init(L"modelData/ene.cmo");
-	m_position.z = 1000.0f;
+	m_position.z = 2000.0f;
 	m_Modelrender->SetPosition(m_position);
 }
 
