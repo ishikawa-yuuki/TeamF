@@ -1767,6 +1767,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy2.cpp" />
+    <ClCompile Include="Enemy3.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Help.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -1802,6 +1803,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy2.h" />
+    <ClInclude Include="Enemy3.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Help.h" />
     <ClInclude Include="Item.h" />
@@ -1818,6 +1820,7 @@
     <MeshContentTask Include="Assets\modelData\box.fbx" />
     <MeshContentTask Include="Assets\modelData\Bullet.fbx" />
     <MeshContentTask Include="Assets\modelData\ene.fbx" />
+    <MeshContentTask Include="Assets\modelData\ene2.fbx" />
     <MeshContentTask Include="Assets\modelData\enemy.fbx" />
     <MeshContentTask Include="Assets\modelData\kitai.fbx" />
     <MeshContentTask Include="Assets\modelData\Tama.fbx" />

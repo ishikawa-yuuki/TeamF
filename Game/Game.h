@@ -7,6 +7,7 @@
 #include "Camera.h"
 #include "Enemy.h"
 #include "Enemy2.h"
+#include "Enemy3.h"
 #include "Bullet.h"
 #include "Boss.h"
 #include "Item.h"
@@ -36,6 +37,7 @@ public:
 	CVector3 m_lightDir;
 	std::vector<Enemy*> m_enemyList;
 	Enemy2* m_enemy2;
+	Enemy3* m_enemy3;
 	Player* m_player;
 	PowerItem* m_power;
 	Camera* m_camera;

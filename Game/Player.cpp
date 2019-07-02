@@ -23,11 +23,12 @@ Player::Player()
 	m_hp->SetPosition(ps);
 	m_hp->SetPivot({ 0.0f, 0.5f });
 	m_hpber = NewGO<prefab::CSpriteRender>(0);
-	m_hpber->Init(L"sprite/gezikaba.dds", 320.0f, 55.0f);
+	m_hpber->Init(L"sprite/gezikaba.dds", 330.0f, 55.0f);
 	CVector3 psk;
-	psk.x = -400.0f;
-	psk.y = -295.0f;
+	psk.x = -550.0f;
+	psk.y = -300.0f;
 	m_hpber->SetPosition(psk);
+	m_hpber->SetPivot({ 0.0f, 0.5f });
 }
 
 
@@ -61,6 +62,7 @@ void Player::Update()
 			Game* game = FindGO<Game>("Game");
 			game->Nhp--;
 			m_hp->SetScale({ game->Nhp/game->HP, 1.0f, 1.0f });
+			m_hpber->SetScale({ game->Nhp / game->HP,1.0f,1.0f });
 			m_sound = NewGO<prefab::CSoundSource>(0);
 			m_sound->Init(L"sound/damege.wav");
 			m_sound->Play(false);
@@ -74,10 +76,4 @@ void Player::Update()
 	m_position = m_chracon.Execute(m_movespeed);
 
 	m_skinmodelrender->SetPosition(m_position);
-	/*Game* game = FindGO<Game>("Game");
-	if (game->Nhp == 20)
-	{
-		m_hp = NewGO<prefab::CSpriteRender>(0);
-		m_hp->Init(L"Assets/sprite/gezi.dds", 400.0f, 40.0f);
-	}*/
 }
