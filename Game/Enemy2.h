@@ -9,6 +9,7 @@ public:
 	bool Start();
 	void Update();
 	int m_timer = 0;
+	int EHP = 2;
 	Player* m_player;
 	prefab::CSoundSource* m_sound;
 	prefab::CEffect* m_effect;

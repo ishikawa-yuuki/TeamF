@@ -51,25 +51,30 @@ void Enemy3::Update()
 	QueryGOs<Bullet>("Pbullet", [&](Bullet* bullet) {
 		CVector3 dill = bullet->m_position - m_position;
 		if (dill.Length() < 50.0f) {
-			Game* game = FindGO<Game>("Game");
+			EHP--;
 			m_sound = NewGO<prefab::CSoundSource>(0);
-			m_sound->Init(L"sound/bakuhatu.wav");
+			m_sound->Init(L"sound/damege.wav");
 			m_sound->Play(false);
-			m_effect = NewGO<prefab::CEffect>(0);
-			m_effect->Play(L"effect/fire.efk");
-			m_sound->SetVolume(0.2f);
-			m_effect->SetPosition(m_position);
-			CVector3 v;
-			v.x = 0.1f;
-			v.y = 0.1f;
-			v.z = 0.1f;
-			m_effect->SetScale(v);
-			game->gekihacount++;
-			game->m_score += 200;
-			DeleteGO(this);
-			DeleteGO("Pbullet");
 			return false;
 		}
 		return true;
 		});
+
+	if (EHP <= 0) {
+		m_sound = NewGO<prefab::CSoundSource>(0);
+		m_sound->Init(L"sound/bakuhatu.wav");
+		m_sound->Play(false);
+		m_effect = NewGO<prefab::CEffect>(0);
+		m_effect->Play(L"effect/fire.efk");
+		m_effect->SetPosition(m_position);
+		CVector3 v;
+		v.x = 0.5f;
+		v.y = 0.5f;
+		v.z = 0.5f;
+		m_effect->SetScale(v);
+		game->gekihacount++;
+		game->m_score += 200;
+		DeleteGO(this);
+		DeleteGO("Pbullet");
+	}
 }

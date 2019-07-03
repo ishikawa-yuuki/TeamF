@@ -104,15 +104,6 @@ void Game::PostRender(CRenderContext& rc)
 		m_color
 	);
 	m_font.End(rc);
-	
-	swprintf(text, L"\n%d", HP);
-	m_font.Begin(rc);
-	m_font.Draw(
-		text,
-		{ -450.0f,-300.0f },
-		m_colo
-	);
-	m_font.End(rc);
 
 }
 
