@@ -23,11 +23,12 @@ Player::Player()
 	m_hp->SetPosition(ps);
 	m_hp->SetPivot({ 0.0f, 0.5f });
 	m_hpber = NewGO<prefab::CSpriteRender>(0);
-	m_hpber->Init(L"sprite/gezikaba.dds", 320.0f, 55.0f);
+	m_hpber->Init(L"sprite/gezikaba.dds", 330.0f, 55.0f);
 	CVector3 psk;
-	psk.x = -400.0f;
-	psk.y = -295.0f;
+	psk.x = -560.0f;
+	psk.y = -300.0f;
 	m_hpber->SetPosition(psk);
+	m_hpber->SetPivot({ 0.0f, 0.5f });
 }
 
 
@@ -42,8 +43,19 @@ void Player::Move()
 
 }
 
+void Player::Trun()
+{
+	if (fabsf(m_movespeed.x) < 1.0f
+		&& fabsf(m_movespeed.z) < 1.0f) {
+		return;
+	}
+	float angle = atan2(m_movespeed.x, m_movespeed.z);
+	m_rotation.SetRotation(CVector3::AxisY, -angle);
+}
+
 void Player::Update()
 {
+	Trun();
 	m_timer++;
 	if (Pad(0).IsPress(enButtonA)&& m_timer >= 10) {
 		Bullet* bullet = NewGO<Bullet>(0, "Pbullet");
@@ -61,6 +73,7 @@ void Player::Update()
 			Game* game = FindGO<Game>("Game");
 			game->Nhp--;
 			m_hp->SetScale({ game->Nhp/game->HP, 1.0f, 1.0f });
+			m_hpber->SetScale({ game->Nhp / game->HP, 1.0f, 1.0f });
 			m_sound = NewGO<prefab::CSoundSource>(0);
 			m_sound->Init(L"sound/damege.wav");
 			m_sound->Play(false);
@@ -74,5 +87,4 @@ void Player::Update()
 	m_position = m_chracon.Execute(m_movespeed);
 
 	m_skinmodelrender->SetPosition(m_position);
-	
 }
