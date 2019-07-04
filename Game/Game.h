@@ -60,5 +60,7 @@ public:
 	prefab::CSky* m_sky = nullptr;
 	prefab::CSpriteRender*m_spriteRender = nullptr;
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;		//スキンモデルレンダラー。
+
+	
 };
 
