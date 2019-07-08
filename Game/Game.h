@@ -6,8 +6,6 @@
 #include "Player.h"
 #include "Camera.h"
 #include "Enemy.h"
-#include "Enemy2.h"
-#include "Enemy3.h"
 #include "Bullet.h"
 #include "Boss.h"
 #include "Item.h"
@@ -36,9 +34,7 @@ public:
 	prefab::CDirectionLight*m_lig;
 	CVector3 m_lightDir;
 	std::vector<Enemy*> m_enemyList;
-	Enemy2* m_enemy2;
-	Enemy3* m_enemy3;
-	Player* m_player;
+	Player * m_player;
 	PowerItem* m_power;
 	Camera* m_camera;
 	Bullet* m_bullet;
@@ -64,5 +60,7 @@ public:
 	prefab::CSky* m_sky = nullptr;
 	prefab::CSpriteRender*m_spriteRender = nullptr;
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;		//スキンモデルレンダラー。
+
+	
 };
 

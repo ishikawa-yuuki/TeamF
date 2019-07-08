@@ -4,7 +4,7 @@
 #include "Help.h"
 
 const static int Game_Y = -10.0f;   //ゲーム文字のyの位置
-const static int Config_Y = -70.0f; //設定文字のyの位置
+const static int Config_Y = -150.0f; //設定文字のyの位置
 
 typedef enum {
 	Menu_Game,     //ゲーム
@@ -25,6 +25,7 @@ Title::Title()
 Title::~Title()
 {
 	DeleteGO(m_spriterender);
+	
 }
 
 bool Title::Start()
@@ -33,11 +34,14 @@ bool Title::Start()
 	m_sound->Init(L"sound/loop2.wav");
 	m_sound->Play(true);
 	
+	
 	return true;
 }
 
 void Title::Update()
 {
+	
+
 	/*if (Pad(0).IsPress(enButtonA) == true) {
 		DeleteGO(m_sound);
 		DeleteGO(this);
@@ -48,13 +52,15 @@ void Title::Update()
 		DeleteGO(this);
 		NewGO<Help>(0);
 	}*/
+	
+
 	if (Pad(0).IsTrigger(enButtonDown) == true) {//下キーが押されていたら選択状態を一つ下げる
-		NowSelect = (NowSelect + 1) % Menu_Num;  
+		NowSelect = (NowSelect + 1) % Menu_Num;
 		
 	}
 	if (Pad(0).IsTrigger(enButtonUp) == true){//上キーが押されていたら選択状態を一つ上げる 
 		NowSelect = (NowSelect + (Menu_Num - 1)) % Menu_Num; 
-		
+
 	}
 	if (Pad(0).IsPress(enButtonA) == true) {//エンターキーが押されていたら
 		switch (NowSelect)                  //現在選択中の状態によって処理を分岐
@@ -71,39 +77,45 @@ void Title::Update()
 			break;
 		}
 	}
+	
 }
 void Title::PostRender(CRenderContext& rc)
 {
 
-	m_select.Begin(rc);
+	m_game.Begin(rc);
 	const wchar_t* Start =
 		L"ゲームスタート\n";
 	m_select.Draw(
 		Start,
-		{ -50.0f, -10.0f },
+		{ -20.0f, -10.0f },
 		CVector4::White,
 		0.0f,
-		1.1f
-	);
-
+		2.0f
+	); m_game.End(rc);
+	
+	m_config.Begin(rc);
 	const wchar_t* Config =
 		L"ヘルプ\n";
-	m_select.Draw(
+	m_config.Draw(
 		Config,
-		{ -50.0f, -70.0f },
+		{ -50.0f, -150.0f },
 		CVector4::White,
 		0.0f,
-		1.1f
+		2.0f
 	);
+	m_config.End(rc);
+
+	m_select.Begin(rc);
 	const wchar_t* Sirusi =
 		L">\n";
 	m_select.Draw(Sirusi,
-		{ -240.0f, -10.0f },
+		{ -360.0f, -10.0f },
 		CVector4::Black,
 		0.0f,
-		1.0f);
+		1.5f
+	);
 	m_select.End(rc);
-
+	
 	int y = 0;
 	switch (NowSelect) {//現在の選択状態に従って処理を分岐
 	case Menu_Game://ゲーム選択中なら
@@ -113,5 +125,5 @@ void Title::PostRender(CRenderContext& rc)
 		y = Config_Y;    //設定の座標を格納
 		break;
 	}
-	
+
 }
