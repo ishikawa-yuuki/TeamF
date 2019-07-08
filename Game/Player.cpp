@@ -54,20 +54,20 @@ void Player::Move()
 	m_position = m_chracon.Execute(m_movespeed, GameTime().GetFrameDeltaTime());
 }
 
-void Player::Trun()
-{
-	/*if (fabsf(m_movespeed.x) < 1.0f
-		&& fabsf(m_movespeed.z) < 1.0f) {
-		return;
-	}
-	float angle = atan2(m_movespeed.x, m_movespeed.z);
-	m_rotation.SetRotation(CVector3::AxisY, -angle);*/
-}
+//void Player::Trun()
+//{
+//	/*if (fabsf(m_movespeed.x) < 1.0f
+//		&& fabsf(m_movespeed.z) < 1.0f) {
+//		return;
+//	}
+//	float angle = atan2(m_movespeed.x, m_movespeed.z);
+//	m_rotation.SetRotation(CVector3::AxisY, -angle);*/
+//}
 
 void Player::Update()
 {
 	Move();
-	Trun();
+//	Trun();
 	m_timer++;
 	if (Pad(0).IsPress(enButtonA)&& m_timer >= 10) {
 		Bullet* bullet = NewGO<Bullet>(0, "Pbullet");
