@@ -17,7 +17,9 @@ bool Bullet::Start()
 {
 	return true;
 }
-
+void Bullet::Move()
+{
+}
 void Bullet::Update()
 {
 	m_position += m_movespeed;

@@ -18,5 +18,7 @@ public:
 	CQuaternion m_rotation = CQuaternion::Identity;
 	CVector3 m_position = CVector3::Zero;
 	CVector3 m_movespeed = CVector3::Zero;
+	CVector3 cameraForward = MainCamera().GetForward();
+	CVector3 cameraRight = MainCamera().GetRight();
 };
 

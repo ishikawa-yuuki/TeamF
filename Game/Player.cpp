@@ -40,21 +40,33 @@ Player::~Player()
 
 void Player::Move()
 {
-
+	float lStick_x = Pad(0).GetLStickXF();
+	float lStick_y = Pad(0).GetLStickYF();
+	CVector3 cameraForward = MainCamera().GetForward();
+	CVector3 cameraRight = MainCamera().GetRight();
+	cameraForward.y = 0.0f;
+	cameraForward.Normalize();
+	m_movespeed.x = 0.0f;
+	m_movespeed.z = 0.0f;
+	m_movespeed.y = 0.0f * GameTime().GetFrameDeltaTime();
+	m_movespeed += cameraForward * lStick_y * 600.0f;
+	m_movespeed += cameraRight * lStick_x * 600.0f;
+	m_position = m_chracon.Execute(m_movespeed, GameTime().GetFrameDeltaTime());
 }
 
 void Player::Trun()
 {
-	if (fabsf(m_movespeed.x) < 1.0f
+	/*if (fabsf(m_movespeed.x) < 1.0f
 		&& fabsf(m_movespeed.z) < 1.0f) {
 		return;
 	}
 	float angle = atan2(m_movespeed.x, m_movespeed.z);
-	m_rotation.SetRotation(CVector3::AxisY, -angle);
+	m_rotation.SetRotation(CVector3::AxisY, -angle);*/
 }
 
 void Player::Update()
 {
+	Move();
 	Trun();
 	m_timer++;
 	if (Pad(0).IsPress(enButtonA)&& m_timer >= 10) {
@@ -82,9 +94,7 @@ void Player::Update()
 		}
 		return true;
 	});
-	m_movespeed.x = Pad(0).GetLStickXF() * 600.0f;
-	m_movespeed.z = Pad(0).GetLStickYF() * 600.0f;
-	m_position = m_chracon.Execute(m_movespeed);
-
+	//CQuaternion qrot;
+	//qrot.SetRotationDeg(CVector3::AxisX, 180.0f);
 	m_skinmodelrender->SetPosition(m_position);
 }
