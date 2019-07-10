@@ -33,6 +33,7 @@
     <ClCompile Include="Result.cpp" />
     <ClCompile Include="Enemy2.cpp" />
     <ClCompile Include="Help.cpp" />
+    <ClCompile Include="Enemy3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -51,6 +52,7 @@
     <ClInclude Include="Result.h" />
     <ClInclude Include="Enemy2.h" />
     <ClInclude Include="Help.h" />
+    <ClInclude Include="Enemy3.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">

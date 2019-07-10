@@ -13,6 +13,7 @@ Game::Game()
 	m_camera = NewGO<Camera>(0);
 	m_player = NewGO<Player>(0, "Player");
 	enemy2 = NewGO<Enemy2>(0, "Enemy2");
+	m_ene3 = NewGO<Enemy3>(0, "Enemy3");
 	m_boss = NewGO<Boss>(0, "Boss");
 	m_item = NewGO<Item>(0);
 	m_power = NewGO<PowerItem>(0);
@@ -27,6 +28,7 @@ Game::~Game()
 	DeleteGO(m_camera);
 	DeleteGO(m_player);
 	DeleteGO(enemy2);
+	DeleteGO(m_ene3);
 	DeleteGO(m_sky);
 	DeleteGO(m_boss);
 	//DeleteGO(m_item);
