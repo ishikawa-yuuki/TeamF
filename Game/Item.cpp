@@ -30,6 +30,7 @@ void Item::Update()
 	if (diff.Length() < 30.0f) {
 		Game* game = FindGO<Game>("Game");
 		game->Nhp += 10;
+		game->NHPkaba += 10;
 		DeleteGO(this);
 	}
 }

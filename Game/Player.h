@@ -1,5 +1,6 @@
 #pragma once
 class Game;
+class PowerItem;
 class Player :public IGameObject
 {
 public:
@@ -9,6 +10,7 @@ public:
 	void Move();
 	void Trun();
 	int m_timer = 0;
+	PowerItem* m_pow;
 	prefab::CSkinModelRender* m_skinmodelrender = nullptr;
 	CCharacterController m_chracon;
 	prefab::CSpriteRender* m_hpber = nullptr;
@@ -18,5 +20,7 @@ public:
 	CQuaternion m_rotation = CQuaternion::Identity;
 	CVector3 m_position = CVector3::Zero;
 	CVector3 m_movespeed = CVector3::Zero;
+	CVector3 cameraForward = MainCamera().GetForward();
+	CVector3 cameraRight = MainCamera().GetRight();
 };
 
