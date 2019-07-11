@@ -7,6 +7,7 @@ public:
 	~Player();
 	void Update();
 	void Move();
+	void Trun();
 	int m_timer = 0;
 	prefab::CSkinModelRender* m_skinmodelrender = nullptr;
 	CCharacterController m_chracon;

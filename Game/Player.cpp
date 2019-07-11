@@ -88,9 +88,9 @@ void Player::Update()
 
 	m_skinmodelrender->SetPosition(m_position);
 	Game* game = FindGO<Game>("Game");
-	if (game->Nhp == 20)
+	/*if (game->Nhp == 20)
 	{
 		m_hp = NewGO<prefab::CSpriteRender>(0);
-		m_hp->Init(L"sprite / gezi.dds", 400.0f, 40.0f);
-	}
+		m_hp->Init(L"sprite/gezi.dds", 400.0f, 40.0f);
+	}*/
 }

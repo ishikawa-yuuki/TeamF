@@ -3,8 +3,8 @@
 #include "Player.h"
 #include "Game.h"
 #include "Bullet.h"
-
-
+#include "Result.h"
+#include "Score.h"
 
 Enemy::Enemy()
 {
@@ -19,6 +19,7 @@ Enemy::~Enemy()
 bool Enemy::Start()
 {
 	m_player = FindGO<Player>("Player");
+	
 	m_Modelrender = NewGO<prefab::CSkinModelRender>(0);
 	m_Modelrender->Init(L"modelData/enemy.cmo");
 	m_Modelrender->SetPosition(m_position);
@@ -51,6 +52,7 @@ void Enemy::Update()
 		CVector3 dill = bullet->m_position - m_position;
 		if (dill.Length() < 50.0f) {
 			Game* game = FindGO<Game>("Game");
+			Score* m_s = FindGO<Score>("Score");
 			m_sound = NewGO<prefab::CSoundSource>(0);
 			m_sound->Init(L"sound/bakuhatu.wav");
 			m_sound->Play(false);
@@ -63,8 +65,9 @@ void Enemy::Update()
 			v.y = 0.1f;
 			v.z = 0.1f;
 			m_effect->SetScale(v);
-			game->gekihacount++;
-			game->m_score += 100;
+			m_s->gekihacount++;
+			//game->m_score += 100;
+			m_s->m_score += 100;
 			game->RemoveenemyFromList(this);
 			DeleteGO(this);
 			DeleteGO("Pbullet");
