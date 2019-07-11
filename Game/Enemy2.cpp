@@ -8,7 +8,7 @@
 Enemy2::Enemy2()
 {
 	m_Modelrender = NewGO<prefab::CSkinModelRender>(0);
-	m_Modelrender->Init(L"modelData/ene.cmo");
+	m_Modelrender->Init(L"modelData/ene2.cmo");
 	m_position.z = 1000.0f;
 	m_Modelrender->SetPosition(m_position);
 }
@@ -27,8 +27,6 @@ bool Enemy2::Start()
 
 void Enemy2::Update()
 {
-	Game* game = FindGO<Game>("Game");
-	Score* m_s = FindGO<Score>(0);
 
 	CVector3 diff = m_player->m_position - m_position;
 	if (diff.Length() < 3000.0f) {
@@ -74,5 +72,5 @@ void Enemy2::Update()
 			return false;
 		}
 		return true;
-		});
+	});
 }

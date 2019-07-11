@@ -12,8 +12,8 @@ Result::Result()
 	m_spriterender = NewGO< prefab::CSpriteRender>(0);
 	m_spriterender->Init(L"sprite/result.dds", 1280.0f, 720.0f);
 	//m_score = NewGO<prefab::CFontRender>(0);
-	game = FindGO<Game>("Game", false);
-	m_s = FindGO<Score>("Score", false);
+	//game = FindGO<Game>("Game");
+	m_s = FindGO<Score>("Score");
 }
 
 
@@ -34,8 +34,8 @@ void Result::Update()
 
 	if (Pad(0).IsTrigger(enButtonB) == true)
 	{
-		NewGO<Title>(0);
 		DeleteGO(this);
+		NewGO<Title>(0);
 	}
 
 
@@ -83,14 +83,12 @@ void Result::PostRender(CRenderContext& rc)
 	
 	if (m_s->gekihacount <= 3)
 	{
-		m_spriterender = NewGO< prefab::CSpriteRender>(0);
-		m_spriterender->Init(L"sprite/C.dds", 300.0f, 300.0f);
 		CVector3 C;
 		C.x = 400.0f;
 		C.y = -100.0f;
-		m_spriterender->SetPosition(C);
+		//m_Cspriterender->SetPosition(C);
 	}
-	/*if (m_s->gekihacount <= 4 || m_s->gekihacount <= 5)
+	/*if (m_s->gekihacount <= 4 && m_s->gekihacount <= 5)
 	{
 		m_sougou.Begin(rc);
 		const wchar_t* Sougou =
@@ -104,7 +102,7 @@ void Result::PostRender(CRenderContext& rc)
 		);
 		m_sougou.End(rc);
 	}
-		if (m_s->gekihacount <= 6 || m_s->gekihacount <= 7 || m_s->gekihacount <= 8 )
+		if (m_s->gekihacount <= 6 && m_s->gekihacount <= 7 && m_s->gekihacount <= 8 )
 		{
 			m_sougou.Begin(rc);
 			const wchar_t* Sougou =

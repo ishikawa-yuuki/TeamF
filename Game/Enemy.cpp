@@ -65,7 +65,7 @@ void Enemy::Update()
 		v.y = 0.1f;
 		v.z = 0.1f;
 		m_effect->SetScale(v);
-		game->gekihacount++;
+		//game->gekihacount++;
 		game->m_score += 100;
 		game->RemoveenemyFromList(this);
 		DeleteGO(this);

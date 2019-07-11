@@ -38,6 +38,7 @@ public:
 	prefab::CDirectionLight*m_lig;
 	CVector3 m_lightDir;
 	std::vector<Enemy*> m_enemyList;
+	prefab::CEffect* m_effect;
 	Player * m_player;
 	Enemy2* enemy2;
 	Enemy3* m_ene3;

@@ -27,7 +27,6 @@ bool Boss::Start()
 
 void Boss::Update()
 {
-	Game* game = FindGO<Game>("Game");
 
 	CVector3 diff = m_player->m_position - m_position;
 	if (diff.Length() < 3000.0f) {
@@ -79,6 +78,7 @@ void Boss::Update()
 	});
 
 	if (BossHP <= 0) {
+		Game* game = FindGO<Game>("Game");
 		m_sound = NewGO<prefab::CSoundSource>(0);
 		m_sound->Init(L"sound/bakuhatu.wav");
 		m_sound->Play(false);

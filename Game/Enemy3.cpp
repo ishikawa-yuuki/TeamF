@@ -27,8 +27,6 @@ bool Enemy3::Start()
 
 void Enemy3::Update()
 {
-	Game* game = FindGO<Game>("Game");
-	Score* m_s = FindGO<Score>("Score");
 	CVector3 diff = m_player->m_position - m_position;
 	if (diff.Length() < 3000.0f) {
 		diff.Normalize();
@@ -62,6 +60,8 @@ void Enemy3::Update()
 		});
 
 	if (EHP <= 0) {
+		//Game* game = FindGO<Game>("Game");
+		Score* m_s = FindGO<Score>("Score");
 		m_sound = NewGO<prefab::CSoundSource>(0);
 		m_sound->Init(L"sound/bakuhatu.wav");
 		m_sound->Play(false);

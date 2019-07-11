@@ -14,7 +14,7 @@ Game::Game()
 	m_camera = NewGO<Camera>(0);
 	m_player = NewGO<Player>(0, "Player");
 	enemy2 = NewGO<Enemy2>(0, "Enemy2");
-	m_ene3 = NewGO<Enemy3>(0, "Enemy3");
+	//m_ene3 = NewGO<Enemy3>(0, "Enemy3");//
 	m_boss = NewGO<Boss>(0, "Boss");
 	m_item = NewGO<Item>(0);
 	m_power = NewGO<PowerItem>(0);
@@ -27,17 +27,24 @@ Game::~Game()
 	for (auto& m_enemy : m_enemyList) {
 		DeleteGO(m_enemy);
 	}
+	/*Result* m_result_tinko = FindGO<Result>("result");
+	DeleteGO(m_result_tinko);*/
 	DeleteGO(m_camera);
 	DeleteGO(m_player);
-	DeleteGO(enemy2);
-	DeleteGO(m_ene3);
+	QueryGOs<Enemy2>("Enemy2", [](Enemy2* enemy2)->bool
+		{
+			DeleteGO(enemy2);
+			return true;
+		});
+	//DeleteGO(m_ene3);
 	DeleteGO(m_sky);
-	DeleteGO(m_boss);
-	//DeleteGO(m_item);
+	//DeleteGO(m_boss);
+	DeleteGO(m_item);
 	DeleteGO(m_spriteRender);
 	DeleteGO(m_player->m_hp);
 	DeleteGO(m_player->m_hpber);
-	//DeleteGO(m_power);
+	DeleteGO(m_power);
+	DeleteGO(m_s);
 	QueryGOs<Bullet>("Pbullet", [](Bullet* bullet)->bool
 	{
 		DeleteGO(bullet);
@@ -107,15 +114,6 @@ void Game::PostRender(CRenderContext& rc)
 	);
 	m_font.End(rc);
 	*/
-	swprintf(text, L"\n%d", HP);
-	m_font.Begin(rc);
-	m_font.Draw(
-		text,
-		{ -450.0f,-300.0f },
-		m_colo
-	);
-	m_font.End(rc);
-
 }
 
 void Game::Update()
@@ -140,7 +138,7 @@ void Game::Update()
 			timer++;
 			m_score == true;
 			if (timer == 30) {
-				NewGO<Result>(0);
+				NewGO<Result>(0,"result");
 				DeleteGO(this);
 				
 			}
@@ -166,7 +164,7 @@ void Game::Update()
 		
 		if (timer == 30) {
 		
-			NewGO<Result>(0);
+			NewGO<Result>(0,"result");
 			DeleteGO(this);
 			
 		}
