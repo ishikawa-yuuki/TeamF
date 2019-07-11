@@ -118,7 +118,7 @@ namespace tkEngine{
 			) {
 				gameObject->SetDeadMark();
 				gameObject->OnDestroyWrapper();
-				gameObject->m_isRegist = false;
+ 				gameObject->m_isRegist = false;
 				gameObject->m_isRegistDeadList = true;
 		
 				m_deleteObjectArray[m_currentDeleteObjectBufferNo].at(gameObject->GetPriority()).push_back(gameObject);

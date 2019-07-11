@@ -34,6 +34,7 @@ Game::~Game()
 	//DeleteGO(m_item);
 	DeleteGO(m_spriteRender);
 	DeleteGO(m_player->m_hp);
+	DeleteGO(m_player->m_hpber);
 	//DeleteGO(m_power);
 	QueryGOs<Bullet>("Pbullet", [](Bullet* bullet)->bool
 	{

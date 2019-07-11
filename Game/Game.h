@@ -55,6 +55,7 @@ public:
 	int m_score = 0;
 	int HP = 20;
 	float Nhp = 20;
+	float NHPkaba = 20;
 	float Bossgekiha = 0;
 	CFont m_font;
 	prefab::CSoundSource* m_sound;
