@@ -54,20 +54,24 @@ void Player::Move()
 	m_position = m_chracon.Execute(m_movespeed, GameTime().GetFrameDeltaTime());
 }
 
-//void Player::Trun()
-//{
-//	/*if (fabsf(m_movespeed.x) < 1.0f
-//		&& fabsf(m_movespeed.z) < 1.0f) {
-//		return;
-//	}
-//	float angle = atan2(m_movespeed.x, m_movespeed.z);
-//	m_rotation.SetRotation(CVector3::AxisY, -angle);*/
-//}
-
 void Player::Update()
 {
+	CQuaternion qRot = CQuaternion::Identity;
+	if (Pad(0).IsPress(enButtonRight)) {
+		qRot.SetRotationDeg(CVector3::AxisY, 10.0f);
+	}
+	else if (Pad(0).IsPress(enButtonLeft)) {
+		qRot.SetRotationDeg(CVector3::AxisY, -10.0f);
+	}
+	m_rotation.Multiply(qRot);
+
+	CVector3 stick;
+	stick.x = Pad(0).GetRStickXF();
+	stick.y = -Pad(0).GetRStickYF();
+	stick.z = 0.0f;
+	qRot.SetRotationDeg(CVector3::AxisY, stick.x * 2.0f);
+	m_rotation.Multiply(qRot);
 	Move();
-//	Trun();
 	m_timer++;
 	if (Pad(0).IsPress(enButtonA)&& m_timer >= 10) {
 		Bullet* bullet = NewGO<Bullet>(0, "Pbullet");
@@ -94,7 +98,6 @@ void Player::Update()
 		}
 		return true;
 	});
-	//CQuaternion qrot;
-	//qrot.SetRotationDeg(CVector3::AxisX, 180.0f);
+	m_skinmodelrender->SetRotation(m_rotation);
 	m_skinmodelrender->SetPosition(m_position);
 }

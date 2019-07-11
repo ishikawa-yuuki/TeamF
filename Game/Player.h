@@ -1,5 +1,6 @@
 #pragma once
 class Game;
+class PowerItem;
 class Player :public IGameObject
 {
 public:
@@ -8,6 +9,7 @@ public:
 	void Update();
 	void Move();
 	int m_timer = 0;
+	PowerItem* m_pow;
 	prefab::CSkinModelRender* m_skinmodelrender = nullptr;
 	CCharacterController m_chracon;
 	prefab::CSpriteRender* m_hpber = nullptr;
