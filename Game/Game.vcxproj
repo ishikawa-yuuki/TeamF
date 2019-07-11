@@ -1820,7 +1820,6 @@
     <MeshContentTask Include="Assets\modelData\box.fbx" />
     <MeshContentTask Include="Assets\modelData\Bullet.fbx" />
     <MeshContentTask Include="Assets\modelData\ene.fbx" />
-    <MeshContentTask Include="Assets\modelData\ene2.fbx" />
     <MeshContentTask Include="Assets\modelData\enemy.fbx" />
     <MeshContentTask Include="Assets\modelData\kitai.fbx" />
     <MeshContentTask Include="Assets\modelData\Tama.fbx" />
