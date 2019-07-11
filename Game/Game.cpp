@@ -5,6 +5,7 @@
 #include "Help.h"
 #include "Result.h"
 #include "Boss.h"
+#include "Score.h"
 const float SKY_TYOKKEI = 10000.0f; //空の直径。
 Game::Game()
 {
@@ -17,6 +18,7 @@ Game::Game()
 	m_boss = NewGO<Boss>(0, "Boss");
 	m_item = NewGO<Item>(0);
 	m_power = NewGO<PowerItem>(0);
+	m_s = NewGO<Score>(0,"Score");
 }
 
 
@@ -96,7 +98,7 @@ void Game::PostRender(CRenderContext& rc)
 	);
 	m_font.End(rc);
 
-	swprintf(text, L"スコア\n%d", m_score);
+	/*swprintf(text, L"スコア\n%d", m_score);
 	m_font.Begin(rc);
 	m_font.Draw(
 		text,
@@ -104,7 +106,7 @@ void Game::PostRender(CRenderContext& rc)
 		m_color
 	);
 	m_font.End(rc);
-	
+	*/
 	swprintf(text, L"\n%d", HP);
 	m_font.Begin(rc);
 	m_font.Draw(
@@ -121,11 +123,13 @@ void Game::Update()
 	if (Clear == false && Over == false) {
 		if (Pad(0).IsTrigger(enButtonSelect) == true)
 		{
-				DeleteGO(this);
-				NewGO<Title>(0);
+			
+			NewGO<Title>(0);
+			DeleteGO(this);
 		}
 		if (Nhp <= 0) {
 			Over = true;
+
 			//NewGO<Result>(0);
 			//DeleteGO(this);
 			m_sound = NewGO<prefab::CSoundSource>(0);
@@ -133,38 +137,38 @@ void Game::Update()
 			m_sound->Play(false);
 			m_spriteRender = NewGO<prefab::CSpriteRender>(0);
 			m_spriteRender->Init(L"sprite/gameover.dds", 1280.0f, 720.0f);
-			/*m_timer++;
-			if (m_timer == 30) {
-
-				DeleteGO(this);
-			}
-			/*if (m_timer == 30) {
-				
+			timer++;
+			m_score == true;
+			if (timer == 30) {
 				NewGO<Result>(0);
 				DeleteGO(this);
-			}*/
+				
+			}
 		}
-		if (gekihacount >= 10 && Bossgekiha >= 1 ) {
+			if (m_s->gekihacount >= 10 && Bossgekiha >= 1) {
+
+				Clear = true;
+
+				m_sound = NewGO<prefab::CSoundSource>(0);
+				m_sound->Init(L"sound/clea.wav");
+				m_sound->Play(false);
+				m_spriteRender = NewGO<prefab::CSpriteRender>(0);
+				m_spriteRender->Init(L"sprite/GameClear.dds", 1280.0f, 720.0f);
+				m_timer++;
+				/*if (m_timer == 30)
+				{
+					DeleteGO(this);
+				}*/
+			}
+		}
+	else {
+		timer++;
+		
+		if (timer == 30) {
+		
+			NewGO<Result>(0);
+			DeleteGO(this);
 			
-			Clear = true;
-			//DeleteGO(this);
-			//NewGO<Result>(0);
-			m_sound = NewGO<prefab::CSoundSource>(0);
-			m_sound->Init(L"sound/clea.wav");
-			m_sound->Play(false);
-			m_spriteRender = NewGO<prefab::CSpriteRender>(0);
-			m_spriteRender->Init(L"sprite/GameClear.dds", 1280.0f, 720.0f);
-			m_timer++;
-			/*if (m_timer == 30)
-			{
-				DeleteGO(this);
-			}*/
 		}
-	}
-	
-	else if (m_timer == 30)
-	{
-		NewGO<Result>(0);
-		DeleteGO(this);
 	}
 }

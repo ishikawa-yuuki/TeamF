@@ -8,6 +8,7 @@ public:
 	~Player();
 	void Update();
 	void Move();
+	void Trun();
 	int m_timer = 0;
 	PowerItem* m_pow;
 	prefab::CSkinModelRender* m_skinmodelrender = nullptr;

@@ -34,6 +34,7 @@
     <ClCompile Include="Enemy2.cpp" />
     <ClCompile Include="Help.cpp" />
     <ClCompile Include="Enemy3.cpp" />
+    <ClCompile Include="Score.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -53,6 +54,7 @@
     <ClInclude Include="Enemy2.h" />
     <ClInclude Include="Help.h" />
     <ClInclude Include="Enemy3.h" />
+    <ClInclude Include="Score.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -64,6 +66,9 @@
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\kitai.fbx">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\enemy.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Bullet.fbx">
@@ -138,5 +143,10 @@
     <Media Include="Assets\sound\loop2.wav">
       <Filter>Assets\sound</Filter>
     </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\sprite\C.png">
+      <Filter>Assets\sprite</Filter>
+    </Image>
   </ItemGroup>
 </Project>

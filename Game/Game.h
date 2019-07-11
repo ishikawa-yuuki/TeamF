@@ -13,6 +13,8 @@
 #include "Item.h"
 #include "PowerItem.h"
 #include "Camera.h"
+#include "Score.h"
+class Result;
 class Game : public IGameObject
 {
 public:
@@ -44,8 +46,10 @@ public:
 	Bullet* m_bullet;
 	Boss* m_boss;
 	Item* m_item;
+	Result* result;
+	Score* m_s;
 	CLevel m_level;
-	int gekihacount = 0;
+	//int gekihacount = 0;
 	int Over = false;
 	int Clear = false;
 	int Ctime = 0;
@@ -65,7 +69,6 @@ public:
 	prefab::CSky* m_sky = nullptr;
 	prefab::CSpriteRender*m_spriteRender = nullptr;
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;		//スキンモデルレンダラー。
-
 	
 };
 

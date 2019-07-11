@@ -2,7 +2,6 @@
 #include "Title.h"
 #include "Game.h"
 #include "Help.h"
-
 const static int Game_Y = -10.0f;   //ƒQ[ƒ€•¶š‚Ìy‚ÌˆÊ’u
 const static int Config_Y = -150.0f; //İ’è•¶š‚Ìy‚ÌˆÊ’u
 

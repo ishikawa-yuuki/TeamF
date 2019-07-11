@@ -1,5 +1,8 @@
 #pragma once
+
 class Game;
+class  Player;
+class Score;
 class Result : public IGameObject
 {
 public:
@@ -9,12 +12,13 @@ public:
 	prefab::CSpriteRender* m_spriterender;
 	prefab::CSoundSource* m_sound;
 	Game* game;
+	Player* m_player;
 	void PostRender(CRenderContext& rc) override;
-	int Over = false;
-	int Clear = false;
-	int m_score = 0;
+	Score* m_s;
+	int m_Rscore = 0;
 	CFont m_scoa;
-	CFont m_zikan;
+	CFont m_kazu;
 	CFont m_sougou;
+	prefab::CFontRender* m_score = nullptr;	//フォントレンダラー。
 };
 
