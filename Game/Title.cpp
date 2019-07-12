@@ -87,7 +87,7 @@ void Title::PostRender(CRenderContext& rc)
 	m_select.Draw(
 		Start,
 		{ -20.0f, -10.0f },
-		CVector4::White,
+		CVector4::Black,
 		0.0f,
 		2.0f
 	); m_game.End(rc);
@@ -98,23 +98,38 @@ void Title::PostRender(CRenderContext& rc)
 	m_config.Draw(
 		Config,
 		{ -50.0f, -150.0f },
-		CVector4::White,
+		CVector4::Black,
 		0.0f,
 		2.0f
 	);
 	m_config.End(rc);
 
-	m_select.Begin(rc);
-	const wchar_t* Sirusi =
-		L">\n";
-	m_select.Draw(Sirusi,
-		{ -360.0f, -10.0f },
-		CVector4::Black,
-		0.0f,
-		1.5f
-	);
-	m_select.End(rc);
 	
+
+	if (Pad(0).IsTrigger(enButtonDown) == true) {//下キーが押されていたら選択状態を一つ下げる
+		m_select.Begin(rc);
+		const wchar_t* Sirusi =
+			L">\n";
+		m_select.Draw(Sirusi,
+			{ -360.0f, -150.0f },
+			CVector4::Black,
+			0.0f,
+			1.5f
+			);
+		m_select.End(rc);
+	}
+	if (Pad(0).IsTrigger(enButtonUp) == true) {//上キーが押されていたら選択状態を一つ上げる 
+		m_select.Begin(rc);
+		const wchar_t* Sirusi =
+			L">\n";
+		m_select.Draw(Sirusi,
+			{ -360.0f, -10.0f },
+			CVector4::Black,
+			0.0f,
+			1.5f
+		);
+		m_select.End(rc);
+	}
 	int y = 0;
 	switch (NowSelect) {//現在の選択状態に従って処理を分岐
 	case Menu_Game://ゲーム選択中なら
