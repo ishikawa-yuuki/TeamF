@@ -12,15 +12,17 @@ Result::Result()
 	m_spriterender = NewGO< prefab::CSpriteRender>(0);
 	m_spriterender->Init(L"sprite/result.dds", 1280.0f, 720.0f);
 	//m_score = NewGO<prefab::CFontRender>(0);
-	//game = FindGO<Game>("Game");
-	m_s = FindGO<Score>("Score");
+	game = FindGO<Game>("Game", false);
+	m_s = FindGO<Score>("Score", false);
 }
 
 
 Result::~Result()
 {
+	
 	DeleteGO(m_spriterender);
 	DeleteGO(m_s);
+	DeleteGO(m_Cspriterender);
 }
 
 void Result::Update()
@@ -32,12 +34,13 @@ void Result::Update()
 	m_score->SetScale(1.5f);
 	*/
 
+
+
 	if (Pad(0).IsTrigger(enButtonB) == true)
 	{
-		DeleteGO(this);
 		NewGO<Title>(0);
+		DeleteGO(this);
 	}
-
 
 }
 
@@ -80,53 +83,39 @@ void Result::PostRender(CRenderContext& rc)
 	); 
 	m_sougou.End(rc);
 	
+	CVector3 C;
+	C.x = 300.0f;
+	C.y = -100.0f;
+
 	
-	if (m_s->gekihacount <= 3)
+	if (m_s->gekihacount <= 3 == true)
 	{
-		CVector3 C;
-		C.x = 400.0f;
-		C.y = -100.0f;
-		//m_Cspriterender->SetPosition(C);
+		m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
+		m_Cspriterender->Init(L"sprite/C.dds", 300.0f, 400.0f);
+
+		m_Cspriterender->SetPosition(C);
 	}
-	/*if (m_s->gekihacount <= 4 && m_s->gekihacount <= 5)
+	
+	else if (m_s->gekihacount <= 4 || m_s->gekihacount <= 5 == true)
 	{
-		m_sougou.Begin(rc);
-		const wchar_t* Sougou =
-			L"B\n";
-		m_sougou.Draw(
-			Sougou,
-			{ 150.0f,120.0f },
-			CVector4::Black,
-			0.0f,
-			1.5f
-		);
-		m_sougou.End(rc);
+		m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
+		m_Cspriterender->Init(L"sprite/B.dds", 300.0f, 400.0f);
+		
+		m_Cspriterender->SetPosition(C);
 	}
-		if (m_s->gekihacount <= 6 && m_s->gekihacount <= 7 && m_s->gekihacount <= 8 )
+	else if (m_s->gekihacount <= 6 || m_s->gekihacount <= 7 || m_s->gekihacount <= 8 )
 		{
-			m_sougou.Begin(rc);
-			const wchar_t* Sougou =
-				L"A\n";
-			m_sougou.Draw(
-				Sougou,
-				{ 150.0f,120.0f },
-				CVector4::Black,
-				0.0f,
-				1.5f
-			);
+			m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
+			m_Cspriterender->Init(L"sprite/A.dds", 300.0f, 400.0f);
+			
+			m_Cspriterender->SetPosition(C);
 		}
 
-		if (m_s->gekihacount >= 9)
+	else if (m_s->gekihacount >= 9)
 		{
-			m_sougou.Begin(rc);
-			const wchar_t* Sougou =
-				L"S\n";
-			m_sougou.Draw(
-				Sougou,
-				{ 150.0f,120.0f },
-				CVector4::Black,
-				0.0f,
-				1.5f
-			);
-		}*/
+			m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
+			m_Cspriterender->Init(L"sprite/S.dds", 300.0f, 400.0f);
+			
+			m_Cspriterender->SetPosition(C);
+		}
 }

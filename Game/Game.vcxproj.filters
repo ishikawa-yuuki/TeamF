@@ -118,7 +118,9 @@
     <ImageContentTask Include="Assets\sprite\gezi.png">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
-    <ImageContentTask Include="Assets\sprite\C.png" />
+    <ImageContentTask Include="Assets\sprite\C.png">
+      <Filter>Assets\sprite</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\sora.tkl">
@@ -147,5 +149,16 @@
     <Media Include="Assets\sound\loop2.wav">
       <Filter>Assets\sound</Filter>
     </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\sprite\A.png">
+      <Filter>Assets\sprite</Filter>
+    </Image>
+    <Image Include="Assets\sprite\B.png">
+      <Filter>Assets\sprite</Filter>
+    </Image>
+    <Image Include="Assets\sprite\S.png">
+      <Filter>Assets\sprite</Filter>
+    </Image>
   </ItemGroup>
 </Project>
