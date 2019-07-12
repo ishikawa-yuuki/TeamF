@@ -6,11 +6,7 @@
 #include "Result.h"
 #include "Score.h"
 Enemy2::Enemy2()
-{
-	m_Modelrender = NewGO<prefab::CSkinModelRender>(0);
-	m_Modelrender->Init(L"modelData/ene2.cmo");
-	m_position.z = 1000.0f;
-	m_Modelrender->SetPosition(m_position);
+{	
 }
 
 
@@ -22,6 +18,12 @@ Enemy2::~Enemy2()
 bool Enemy2::Start()
 {
 	m_player = FindGO<Player>("Player");
+
+	m_Modelrender = NewGO<prefab::CSkinModelRender>(0);
+	m_Modelrender->Init(L"modelData/falcon.cmo");
+	m_Modelrender->SetPosition(m_position);
+	m_Modelrender->SetScale(m_scale);
+	m_Modelrender->SetRotation(m_rotation);
 	return true;
 }
 
@@ -67,6 +69,7 @@ void Enemy2::Update()
 			m_s->gekihacount++;
 			//game->m_score += 200;
 			m_s->m_score += 200;
+			game->RemoveenemyFromList2(this);
 			DeleteGO(this);
 			DeleteGO("Pbullet");
 			return false;

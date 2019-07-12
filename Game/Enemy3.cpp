@@ -7,10 +7,7 @@
 #include "Score.h"
 Enemy3::Enemy3()
 {
-	m_Modelrender = NewGO<prefab::CSkinModelRender>(0);
-	m_Modelrender->Init(L"modelData/ene2.cmo");
-	m_position.z = 4000.0f;
-	m_Modelrender->SetPosition(m_position);
+
 }
 
 
@@ -22,6 +19,12 @@ Enemy3::~Enemy3()
 bool Enemy3::Start()
 {
 	m_player = FindGO<Player>("Player");
+
+	m_Modelrender = NewGO<prefab::CSkinModelRender>(0);
+	m_Modelrender->Init(L"modelData/hune.cmo");
+	m_Modelrender->SetPosition(m_position);
+	m_Modelrender->SetScale(m_scale);
+	m_Modelrender->SetRotation(m_rotation);
 	return true;
 }
 
@@ -60,7 +63,7 @@ void Enemy3::Update()
 		});
 
 	if (EHP <= 0) {
-		//Game* game = FindGO<Game>("Game");
+		Game* game = FindGO<Game>("Game");
 		Score* m_s = FindGO<Score>("Score");
 		m_sound = NewGO<prefab::CSoundSource>(0);
 		m_sound->Init(L"sound/bakuhatu.wav");
@@ -76,6 +79,7 @@ void Enemy3::Update()
 		m_s->gekihacount++;
 		//game->m_score += 200;
 		m_s->m_score = 200;
+		game->RemoveenemyFromList3(this);
 		DeleteGO(this);
 		DeleteGO("Pbullet");
 	}
