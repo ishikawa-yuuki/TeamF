@@ -7,10 +7,7 @@
 
 Boss::Boss()
 {
-	m_Modelrender = NewGO<prefab::CSkinModelRender>(0);
-	m_Modelrender->Init(L"modelData/BOSS.cmo");
-	m_position.z = 6000.0f;
-	m_Modelrender->SetPosition(m_position);
+	
 }
 
 
@@ -22,6 +19,12 @@ Boss::~Boss()
 bool Boss::Start()
 {
 	m_player = FindGO<Player>("Player");
+
+	m_Modelrender = NewGO<prefab::CSkinModelRender>(0);
+	m_Modelrender->Init(L"modelData/mather.cmo");
+	m_Modelrender->SetPosition(m_position);
+	m_Modelrender->SetScale(m_scale);
+	m_Modelrender->SetRotation(m_rotation);
 	return true;
 }
 
@@ -92,6 +95,7 @@ void Boss::Update()
 		m_effect->SetScale(v);
 		game->Bossgekiha++;
 		game->m_score += 300;
+		game->RemoveenemyFromList4(this);
 		DeleteGO(this);
 		DeleteGO("Pbullet");
 	}

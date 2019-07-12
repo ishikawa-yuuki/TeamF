@@ -21,7 +21,7 @@ bool Enemy::Start()
 	m_player = FindGO<Player>("Player");
 	
 	m_Modelrender = NewGO<prefab::CSkinModelRender>(0);
-	m_Modelrender->Init(L"modelData/ene.cmo");
+	m_Modelrender->Init(L"modelData/taiF.cmo");
 	m_Modelrender->SetPosition(m_position);
 	m_Modelrender->SetScale(m_scale);
 	m_Modelrender->SetRotation(m_rotation);
