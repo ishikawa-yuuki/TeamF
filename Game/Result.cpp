@@ -53,7 +53,7 @@ void Result::PostRender(CRenderContext& rc)
 	m_scoa.Begin(rc);
 	m_scoa.Draw(
 		text,
-		{ -450.0f,-10.0f },
+		{ -450.0f,-100.0f },
 		CVector4::Black,
 		0.0f,
 		1.5f
@@ -64,7 +64,7 @@ void Result::PostRender(CRenderContext& rc)
 	m_kazu.Begin(rc);
 	m_kazu.Draw(
 		text,
-		{ -520.0f,140.0f },
+		{ -470.0f,120.0f },
 		CVector4::Black,
 		0.0f,
 		1.5f
@@ -88,26 +88,23 @@ void Result::PostRender(CRenderContext& rc)
 	C.y = -100.0f;
 
 	
-	if (m_s->gekihacount <= 3 == true)
+	if (m_s->gekihacount <= 3 )
 	{
 		m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
 		m_Cspriterender->Init(L"sprite/C.dds", 300.0f, 400.0f);
-
 		m_Cspriterender->SetPosition(C);
 	}
 	
-	else if (m_s->gekihacount <= 4 || m_s->gekihacount <= 5 == true)
+	else if (m_s->gekihacount <= 4 || m_s->gekihacount <= 5 ||m_s->gekihacount <= 6)
 	{
 		m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
 		m_Cspriterender->Init(L"sprite/B.dds", 300.0f, 400.0f);
-		
 		m_Cspriterender->SetPosition(C);
 	}
-	else if (m_s->gekihacount <= 6 || m_s->gekihacount <= 7 || m_s->gekihacount <= 8 )
+	else if ( m_s->gekihacount <= 7 || m_s->gekihacount <= 8 )
 		{
 			m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
 			m_Cspriterender->Init(L"sprite/A.dds", 300.0f, 400.0f);
-			
 			m_Cspriterender->SetPosition(C);
 		}
 
@@ -115,7 +112,6 @@ void Result::PostRender(CRenderContext& rc)
 		{
 			m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
 			m_Cspriterender->Init(L"sprite/S.dds", 300.0f, 400.0f);
-			
 			m_Cspriterender->SetPosition(C);
 		}
 }

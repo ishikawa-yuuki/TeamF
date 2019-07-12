@@ -7,5 +7,6 @@ public:
 	void Update();
 	prefab::CSpriteRender* m_spriterender;
 	prefab::CSoundSource* m_sound;
-
+	void PostRender(CRenderContext& rc) override;
+	CFont m_sousa;
 };
