@@ -1,7 +1,7 @@
 #pragma once
 
 class Game;
-class  Player;
+class Player;
 class Score;
 class Result : public IGameObject
 {

@@ -16,12 +16,6 @@ Score::~Score()
 	
 }
 
-bool Score::Start()
-{
-
-	
-	return true;
-}
 void Score::Update()
 {
 	/*wchar_t text[256];

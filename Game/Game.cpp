@@ -16,6 +16,7 @@ Game::Game()
 	m_item = NewGO<Item>(0);
 	m_power = NewGO<PowerItem>(0);
 	m_s = NewGO<Score>(0,"Score");
+	
 }
 
 
@@ -48,7 +49,7 @@ Game::~Game()
 	DeleteGO(m_player->m_hp);
 	DeleteGO(m_player->m_hpber);
 	DeleteGO(m_power);
-	DeleteGO(m_s);
+	//DeleteGO(m_s);
 	QueryGOs<Bullet>("Pbullet", [](Bullet* bullet)->bool
 	{
 		DeleteGO(bullet);
@@ -165,9 +166,8 @@ void Game::Update()
 			m_spriteRender = NewGO<prefab::CSpriteRender>(0);
 			m_spriteRender->Init(L"sprite/gameover.dds", 1280.0f, 720.0f);
 			timer++;
-			m_score = true;
 			if (timer == 30) {
-				NewGO<Result>(0,"result");
+				NewGO<Result>(0);
 				DeleteGO(this);
 				
 			}
@@ -181,21 +181,20 @@ void Game::Update()
 				m_sound->Play(false);
 				m_spriteRender = NewGO<prefab::CSpriteRender>(0);
 				m_spriteRender->Init(L"sprite/GameClear.dds", 1280.0f, 720.0f);
-				m_timer++;
-				/*if (m_timer == 30)
+				timer++;
+				if (timer == 30)
 				{
+					NewGO<Result>(0);
 					DeleteGO(this);
-				}*/
+				}
 			}
 		}
 	else {
 		timer++;
 		
 		if (timer == 30) {
-		
-			NewGO<Result>(0,"result");
+			NewGO<Result>(0);
 			DeleteGO(this);
-			
 		}
 	}
 }
