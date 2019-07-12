@@ -28,8 +28,7 @@ void PowerItem::Update()
 	CVector3 diff = m_player->m_position - m_position;
 	if (diff.Length() < 30.0f)
 	{
-		Boss* boss = FindGO<Boss>("Boss");
-		boss->BossHP -= 10;
+		powcount++;
 		DeleteGO(this);
 	}
 }

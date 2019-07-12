@@ -31,9 +31,9 @@ bool Enemy3::Start()
 void Enemy3::Update()
 {
 	CVector3 diff = m_player->m_position - m_position;
-	if (diff.Length() < 3000.0f) {
+	if (diff.Length() < 1000.0f) {
 		diff.Normalize();
-		diff *= 40.0f;
+		diff *= 10.0f;
 		m_position += diff;
 		m_Modelrender->SetPosition(m_position);
 	}

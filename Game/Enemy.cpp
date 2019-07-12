@@ -31,7 +31,7 @@ bool Enemy::Start()
 void Enemy::Update()
 {
 	CVector3 diff = m_player->m_position - m_position;
-	if (diff.Length() < 3000.0f) {
+	if (diff.Length() < 1000.0f) {
 		diff.Normalize();
 		diff *= 15.0f;
 		m_position += diff;

@@ -14,7 +14,7 @@ Game::Game()
 	m_camera = NewGO<Camera>(0);
 	m_player = NewGO<Player>(0, "Player");
 	m_item = NewGO<Item>(0);
-	m_power = NewGO<PowerItem>(0);
+	//m_power = NewGO<PowerItem>(0);
 	m_s = NewGO<Score>(0,"Score");
 	
 }
@@ -37,18 +37,25 @@ Game::~Game()
 	for (auto& m_boss : m_bossList) {
 		DeleteGO(m_boss);
 	}
-	/*Result* m_result_tinko = FindGO<Result>("result");
-	DeleteGO(m_result_tinko);*/
+
 	DeleteGO(m_camera);
 	DeleteGO(m_player);
-	//DeleteGO(m_ene3);
 	DeleteGO(m_sky);
-	//DeleteGO(m_boss);
-	DeleteGO(m_item);
+	QueryGOs<Item>("Item", [](Item* item)->bool
+		{
+			DeleteGO(item);
+			return true;
+		});
+
+	//QueryGOs<PowerItem>("PowerItem", [](PowerItem* Pitem)->bool
+	//	{
+	//		DeleteGO(Pitem);
+	//		return true;
+	//	});
+
 	DeleteGO(m_spriteRender);
 	DeleteGO(m_player->m_hp);
 	DeleteGO(m_player->m_hpber);
-	DeleteGO(m_power);
 	//DeleteGO(m_s);
 	QueryGOs<Bullet>("Pbullet", [](Bullet* bullet)->bool
 	{
@@ -63,6 +70,10 @@ Game::~Game()
 }
 bool Game::Start()
 {
+
+	m_sound = NewGO<prefab::CSoundSource>(0);
+	m_sound->Init(L"sound/cyber.wav");
+	m_sound->Play(true);
 
 	m_level.Init(L"sora.tkl", [&](LevelObjectData& objData) {
 		if (objData.EqualObjectName(L"taiF") == true) {
@@ -160,6 +171,7 @@ void Game::Update()
 
 			//NewGO<Result>(0);
 			//DeleteGO(this);
+			DeleteGO(m_sound);
 			m_sound = NewGO<prefab::CSoundSource>(0);
 			m_sound->Init(L"sound/gameover.wav");
 			m_sound->Play(false);
@@ -176,6 +188,7 @@ void Game::Update()
 
 				Clear = true;
 
+				DeleteGO(m_sound);
 				m_sound = NewGO<prefab::CSoundSource>(0);
 				m_sound->Init(L"sound/clea.wav");
 				m_sound->Play(false);
@@ -194,6 +207,7 @@ void Game::Update()
 		
 		if (timer == 30) {
 			NewGO<Result>(0);
+			DeleteGO(m_sound);
 			DeleteGO(this);
 		}
 	}
