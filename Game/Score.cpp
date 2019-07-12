@@ -13,7 +13,7 @@ Score::Score()
 
 Score::~Score()
 {
-	
+	DeleteGO(this);
 }
 
 void Score::Update()
