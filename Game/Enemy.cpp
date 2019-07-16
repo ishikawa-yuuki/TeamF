@@ -75,6 +75,15 @@ void Enemy::Update()
 	QueryGOs<Bullet>("Pbullet", [&](Bullet*bullet) {
 		CVector3 dill = bullet->m_position - m_position;
 		if (dill.Length() < 50.0f) {
+			EHP--;
+			m_sound = NewGO<prefab::CSoundSource>(0);
+			m_sound->Init(L"sound/damege.wav");
+			m_sound->Play(false);
+			return false;
+		}
+		return true;
+		});
+	if(EHP <= 0) {
 			Game* game = FindGO<Game>("Game");
 			Score* m_s = FindGO<Score>("Score");
 			m_sound = NewGO<prefab::CSoundSource>(0);
@@ -95,8 +104,5 @@ void Enemy::Update()
 			game->RemoveenemyFromList(this);
 			DeleteGO(this);
 			DeleteGO("Pbullet");
-			return false;
 		}
-		return true;
-	});
 }
