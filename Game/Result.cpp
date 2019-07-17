@@ -88,7 +88,7 @@ void Result::PostRender(CRenderContext& rc)
 	C.x = 300.0f;
 	C.y = -100.0f;
 
-		if (m_s->gekihacount <= 3)
+		if (m_s->gekihacount <= 8)
 		{
 			
 			m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
@@ -96,14 +96,14 @@ void Result::PostRender(CRenderContext& rc)
 			m_Cspriterender->SetPosition(C);
 		}
 
-		else if (m_s->gekihacount <= 4 || m_s->gekihacount <= 5 || m_s->gekihacount <= 6)
+		else if (m_s->gekihacount <= 9 || m_s->gekihacount <= 10 || m_s->gekihacount <= 11)
 		{
 			
 			m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
 			m_Cspriterender->Init(L"sprite/B.dds", 300.0f, 400.0f);
 			m_Cspriterender->SetPosition(C);
 		}
-		else if (m_s->gekihacount <= 7 || m_s->gekihacount <= 8)
+		else if (m_s->gekihacount <= 12 || m_s->gekihacount <= 13)
 		{
 			
 			m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
@@ -111,7 +111,7 @@ void Result::PostRender(CRenderContext& rc)
 			m_Cspriterender->SetPosition(C);
 		}
 
-		else if (m_s->gekihacount == 9 && game->Bossgekiha == 1)
+		else if (m_s->gekihacount == 14 && m_s->Bossgekiha <= 1)
 		{
 			
 			m_Cspriterender = NewGO< prefab::CSpriteRender>(0);

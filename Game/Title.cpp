@@ -24,7 +24,6 @@ Title::Title()
 Title::~Title()
 {
 	DeleteGO(m_spriterender);
-	
 }
 
 bool Title::Start()
@@ -107,6 +106,7 @@ void Title::PostRender(CRenderContext& rc)
 	
 
 	if (Pad(0).IsTrigger(enButtonDown) == true) {//下キーが押されていたら選択状態を一つ下げる
+		
 		m_select.Begin(rc);
 		const wchar_t* Sirusi =
 			L">\n";
@@ -116,7 +116,9 @@ void Title::PostRender(CRenderContext& rc)
 			0.0f,
 			1.5f
 			);
+		
 		m_select.End(rc);
+	
 	}
 	if (Pad(0).IsTrigger(enButtonUp) == true) {//上キーが押されていたら選択状態を一つ上げる 
 		m_select.Begin(rc);
@@ -128,7 +130,9 @@ void Title::PostRender(CRenderContext& rc)
 			0.0f,
 			1.5f
 		);
+		
 		m_select.End(rc);
+	
 	}
 	int y = 0;
 	switch (NowSelect) {//現在の選択状態に従って処理を分岐

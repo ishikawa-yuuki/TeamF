@@ -1,5 +1,6 @@
 #pragma once
 #include "Player.h"
+class Score;
 class Boss :public IGameObject
 {
 public:
@@ -10,6 +11,7 @@ public:
 	int BossHP = 20;
 	int m_timer = 0;
 	Player *m_player;
+	Score* m_s;
 	prefab::CSoundSource* m_sound;
 	prefab::CEffect* m_effect;
 	prefab::CSkinModelRender* m_Modelrender = nullptr;

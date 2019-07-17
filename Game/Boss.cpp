@@ -82,6 +82,7 @@ void Boss::Update()
 
 	if (BossHP <= 0) {
 		Game* game = FindGO<Game>("Game");
+		Score* m_s = FindGO<Score>("Score");
 		m_sound = NewGO<prefab::CSoundSource>(0);
 		m_sound->Init(L"sound/bakuhatu.wav");
 		m_sound->Play(false);
@@ -93,8 +94,8 @@ void Boss::Update()
 		v.y = 0.5f;
 		v.z = 0.5f;
 		m_effect->SetScale(v);
-		game->Bossgekiha++;
-		game->m_score += 300;
+		m_s->Bossgekiha += 1;
+		m_s->m_score += 300;
 		game->RemoveenemyFromList4(this);
 		DeleteGO(this);
 		DeleteGO("Pbullet");
