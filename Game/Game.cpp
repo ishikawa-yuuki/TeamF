@@ -42,18 +42,6 @@ Game::~Game()
 	DeleteGO(m_player);
 	DeleteGO(m_sky);
 	DeleteGO(m_item);
-	//QueryGOs<Item>("Item", [](Item* item)->bool
-	//	{
-	//		DeleteGO(item);
-	//		return true;
-	//	});
-
-	/*QueryGOs<PowerItem>("PowerItem", [](PowerItem* Pitem)->bool
-		{
-			DeleteGO(Pitem);
-			return true;
-		});
-*/
 	DeleteGO(m_spriteRender);
 	DeleteGO(m_player->m_hp);
 	DeleteGO(m_player->m_hpber);
@@ -136,7 +124,7 @@ void Game::PostRender(CRenderContext& rc)
 	
 	wchar_t text[256];
 
-	swprintf(text, L"残り時間\n%d", time);
+	/*swprintf(text, L"残り時間\n%d", time);
 
 
 	m_font.Begin(rc);
@@ -145,7 +133,7 @@ void Game::PostRender(CRenderContext& rc)
 		{ -550.0f,300.0f },
 		m_color
 	);
-	m_font.End(rc);
+	m_font.End(rc);*/
 
 	/*swprintf(text, L"スコア\n%d", m_score);
 	m_font.Begin(rc);

@@ -65,15 +65,10 @@ void Player::Update()
 	}
 	m_rotation.Multiply(qRot);
 
-	CVector3 stick;
-	stick.x = Pad(0).GetRStickXF();
-	stick.y = -Pad(0).GetRStickYF();
-	stick.z = 0.0f;
-	qRot.SetRotationDeg(CVector3::AxisY, stick.x * 2.0f);
 	m_rotation.Multiply(qRot);
 	Move();
 	m_timer++;
-	if (Pad(0).IsPress(enButtonA)&& m_timer >= 10) {
+	if (Pad(0).IsPress(enButtonA)&& m_timer >= 5) {
 		Bullet* bullet = NewGO<Bullet>(0, "Pbullet");
 		bullet->m_position = m_position;
 		bullet->m_movespeed.z = MainCamera().GetForward().z*30.0f;
@@ -102,9 +97,4 @@ void Player::Update()
 	});
 	m_skinmodelrender->SetRotation(m_rotation);
 	m_skinmodelrender->SetPosition(m_position);
-	/*if (game->Nhp == 20)
-	{
-		m_hp = NewGO<prefab::CSpriteRender>(0);
-		m_hp->Init(L"sprite/gezi.dds", 400.0f, 40.0f);
-	}*/
 }

@@ -164,4 +164,9 @@
       <Filter>Assets\sound</Filter>
     </Media>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\effect\Star.png">
+      <Filter>Assets\sprite</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

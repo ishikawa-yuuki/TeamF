@@ -9,7 +9,8 @@ public:
 	void Update();
 	Player* m_player;
 	prefab::CSkinModelRender* m_modelrender = nullptr;
+	prefab::CEffect* m_effect = nullptr;
 	CVector3 m_position = CVector3::Zero;
 	CVector3 m_Scale = CVector3::One;
-	prefab::CSoundSource* m_sound;
+	prefab::CSoundSource* m_sound = nullptr;
 };

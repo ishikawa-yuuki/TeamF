@@ -1,4 +1,5 @@
 #pragma once
+#include "tkEngine/graphics/effect/tkEffect.h"
 #include "Player.h"
 #include "Bullet.h"
 #include "Result.h"
@@ -13,7 +14,7 @@ public:
 	Player* m_player;
 	Score* m_s;
 	prefab::CSoundSource* m_sound;
-	prefab::CEffect* m_effect;
+	prefab::CEffect* m_effect = nullptr;
 	prefab::CSkinModelRender* m_Modelrender = nullptr;
 	CVector3 m_position = CVector3::Zero;
 	CVector3 m_movespeed = CVector3::Zero;

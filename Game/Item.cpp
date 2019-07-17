@@ -32,6 +32,9 @@ void Item::Update()
 		m_sound = NewGO<prefab::CSoundSource>(0);
 		m_sound->Init(L"sound/heal02.wav");
 		m_sound->Play(false);
+		m_effect = NewGO<prefab::CEffect>(0);
+		m_effect->Play(L"effect/heal.efk");
+		m_effect->SetPosition(m_position);
 		game->Nhp += 10;
 		game->NHPkaba += 10;
 		DeleteGO(this);

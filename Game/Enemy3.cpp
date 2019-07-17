@@ -69,13 +69,13 @@ void Enemy3::Update()
 		m_sound->Init(L"sound/bakuhatu.wav");
 		m_sound->Play(false);
 		m_effect = NewGO<prefab::CEffect>(0);
-		m_effect->Play(L"effect/fire.efk");
+		m_effect->Play(L"effect/baku.efk");
 		m_effect->SetPosition(m_position);
-		CVector3 v;
+		/*CVector3 v;
 		v.x = 0.5f;
 		v.y = 0.5f;
-		v.z = 0.5f;
-		m_effect->SetScale(v);
+		v.z = 0.5f;*/
+		/*m_effect->SetScale(v);*/
 		m_s->gekihacount++;
 		//game->m_score += 200;
 		m_s->m_score += 200;

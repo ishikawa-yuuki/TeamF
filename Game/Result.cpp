@@ -111,7 +111,7 @@ void Result::PostRender(CRenderContext& rc)
 			m_Cspriterender->SetPosition(C);
 		}
 
-		else if (m_s->gekihacount == 9 && game->Bossgekiha == 1)
+		else if (m_s->gekihacount == 9 && m_s->Bossgekiha == 1)
 		{
 			
 			m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
