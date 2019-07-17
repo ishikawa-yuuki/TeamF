@@ -29,6 +29,9 @@ void Item::Update()
 	CVector3 diff = m_player->m_position - m_position;
 	if (diff.Length() < 30.0f) {
 		Game* game = FindGO<Game>("Game");
+		m_sound = NewGO<prefab::CSoundSource>(0);
+		m_sound->Init(L"sound/heal02.wav");
+		m_sound->Play(false);
 		game->Nhp += 10;
 		game->NHPkaba += 10;
 		DeleteGO(this);

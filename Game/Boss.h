@@ -8,7 +8,7 @@ public:
 	~Boss();
 	bool Start();
 	void Update();
-	int BossHP = 20;
+	int BossHP = 30;
 	int m_timer = 0;
 	Player *m_player;
 	Score* m_s;

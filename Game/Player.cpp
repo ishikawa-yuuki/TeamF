@@ -87,7 +87,7 @@ void Player::Update()
 
 	QueryGOs<Bullet>("Ebullet", [&](Bullet*bullet)->bool {
 		CVector3 dill = bullet->m_position - m_position;
-		if (dill.Length() < 50.0f) {
+		if (dill.Length() <= 50.0f) {
 			Game* game = FindGO<Game>("Game");
 			game->Nhp--;
 			m_hp->SetScale({ game->Nhp/game->HP, 1.0f, 1.0f });

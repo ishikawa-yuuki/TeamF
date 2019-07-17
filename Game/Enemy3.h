@@ -10,7 +10,7 @@ public:
 	bool Start();
 	void Update();
 	int m_timer = 0;
-	int EHP = 5;
+	int EHP = 20;
 	Player* m_player;
 	Score* m_s;
 	prefab::CSoundSource* m_sound;

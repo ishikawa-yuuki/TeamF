@@ -10,7 +10,7 @@ public:
 	~Result();
 	void Update();
 	prefab::CSpriteRender* m_spriterender;
-	prefab::CSpriteRender* m_Cspriterender;
+	prefab::CSpriteRender* m_Cspriterender = nullptr;
 	prefab::CSoundSource* m_sound;
 	Game* game;
 	Player* m_player;
