@@ -2164,7 +2164,6 @@
       <FileType>Document</FileType>
     </ImageContentTask>
   </ItemGroup>
- 
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\Titlesora.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -2236,6 +2235,7 @@
     <Media Include="Assets\sound\cyber.wav" />
     <Media Include="Assets\sound\damege.wav" />
     <Media Include="Assets\sound\gameover.wav" />
+    <Media Include="Assets\sound\heal02.wav" />
     <Media Include="Assets\sound\loop2.wav" />
     <Media Include="Assets\sound\shoot.wav" />
   </ItemGroup>

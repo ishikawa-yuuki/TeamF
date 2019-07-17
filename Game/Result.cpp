@@ -88,7 +88,7 @@ void Result::PostRender(CRenderContext& rc)
 	C.x = 300.0f;
 	C.y = -100.0f;
 
-		if (m_s->gekihacount <= 3)
+		if (m_s->gekihacount <= 3&& m_Cspriterender ==nullptr)
 		{
 			
 			m_Cspriterender = NewGO< prefab::CSpriteRender>(0);

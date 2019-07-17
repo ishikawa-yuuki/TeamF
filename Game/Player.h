@@ -10,6 +10,8 @@ public:
 	void Move();
 	void Trun();
 	int m_timer = 0;
+	int kaihicount = 0;
+	int Ktime = 0;
 	PowerItem* m_pow;
 	prefab::CSkinModelRender* m_skinmodelrender = nullptr;
 	CCharacterController m_chracon;

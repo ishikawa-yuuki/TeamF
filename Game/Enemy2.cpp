@@ -52,7 +52,7 @@ void Enemy2::Update()
 	QueryGOs<Bullet>("Pbullet", [&](Bullet* bullet) {
 		CVector3 dill = bullet->m_position - m_position;
 		if (dill.Length() < 50.0f) {
-			Game* game = FindGO<Game>("Game");
+	/*		Game* game = FindGO<Game>("Game");
 			Score* m_s = FindGO<Score>("Score");
 			m_sound = NewGO<prefab::CSoundSource>(0);
 			m_sound->Init(L"sound/bakuhatu.wav");
@@ -69,7 +69,7 @@ void Enemy2::Update()
 			m_s->gekihacount++;
 			//game->m_score += 200;
 			m_s->m_score += 200;
-			game->RemoveenemyFromList2(this);
+			game->RemoveenemyFromList2(this);*/
 			DeleteGO(this);
 			DeleteGO("Pbullet");
 			return false;

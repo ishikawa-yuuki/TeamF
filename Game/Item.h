@@ -11,5 +11,5 @@ public:
 	prefab::CSkinModelRender* m_modelrender = nullptr;
 	CVector3 m_position = CVector3::Zero;
 	CVector3 m_Scale = CVector3::One;
-
+	prefab::CSoundSource* m_sound;
 };
