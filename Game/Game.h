@@ -100,7 +100,7 @@ public:
 	int HP = 20;
 	float Nhp = 20;
 	float NHPkaba = 20;
-	float Bossgekiha = 0;
+	//float Bossgekiha = 0;
 	CFont m_font;
 	prefab::CSoundSource* m_sound;
 	CVector4 m_color = CVector4::Yellow;

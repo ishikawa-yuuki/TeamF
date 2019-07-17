@@ -8,6 +8,7 @@ public:
 	void Update();
 	int m_score = 0;
 	int gekihacount = 0;
+	float Bossgekiha = 0;
 	CFont m_sc;
 	//prefab::CFontRender* m_sc = nullptr;	//フォントレンダラー。
 	Game* m_game = nullptr;		
