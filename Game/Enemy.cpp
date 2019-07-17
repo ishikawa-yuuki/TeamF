@@ -57,7 +57,7 @@ void Enemy::Update()
 		m_sound->Init(L"sound/bakuhatu.wav");
 		m_sound->Play(false);
 		m_effect = NewGO<prefab::CEffect>(0);
-		m_effect->Play(L"effect/fire.efk");
+		m_effect->Play(L"effect/bakuhatu.efk");
 		m_sound->SetVolume(0.2f);
 		m_effect->SetPosition(m_position);
 		CVector3 v;

@@ -41,18 +41,19 @@ Game::~Game()
 	DeleteGO(m_camera);
 	DeleteGO(m_player);
 	DeleteGO(m_sky);
-	QueryGOs<Item>("Item", [](Item* item)->bool
-		{
-			DeleteGO(item);
-			return true;
-		});
-
-	//QueryGOs<PowerItem>("PowerItem", [](PowerItem* Pitem)->bool
+	DeleteGO(m_item);
+	//QueryGOs<Item>("Item", [](Item* item)->bool
 	//	{
-	//		DeleteGO(Pitem);
+	//		DeleteGO(item);
 	//		return true;
 	//	});
 
+	/*QueryGOs<PowerItem>("PowerItem", [](PowerItem* Pitem)->bool
+		{
+			DeleteGO(Pitem);
+			return true;
+		});
+*/
 	DeleteGO(m_spriteRender);
 	DeleteGO(m_player->m_hp);
 	DeleteGO(m_player->m_hpber);
