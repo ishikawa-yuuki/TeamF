@@ -14,7 +14,7 @@ Help::~Help()
 }
 void Help::Update()
 {
-	if (Pad(0).IsPress(enButtonSelect) == true)
+	if (Pad(0).IsPress(enButtonB) == true)
 	{
 		NewGO<Title>(0);
 		DeleteGO(this);

@@ -95,7 +95,7 @@ void Boss::Update()
 		v.y = 0.5f;
 		v.z = 0.5f;*/
 		/*m_effect->SetScale(v);*/
-		m_s->Bossgekiha += 1;
+		m_s->gekihacount++;
 		m_s->m_score += 300;
 		game->RemoveenemyFromList4(this);
 		DeleteGO(this);
