@@ -26,9 +26,9 @@ Game::~Game()
 		DeleteGO(m_enemy);
 	}
 
-	for (auto& m_enemy2 : m_enemy2List) {
+	/*for (auto& m_enemy2 : m_enemy2List) {
 		DeleteGO(m_enemy2);
-	}
+	}*/
 
 	for (auto& m_enemy3 : m_enemy3List) {
 		DeleteGO(m_enemy3);
@@ -52,11 +52,10 @@ Game::~Game()
 	//		DeleteGO(Pitem);
 	//		return true;
 	//	});
-
+	
 	DeleteGO(m_spriteRender);
 	DeleteGO(m_player->m_hp);
 	DeleteGO(m_player->m_hpber);
-	//DeleteGO(m_s);
 	QueryGOs<Bullet>("Pbullet", [](Bullet* bullet)->bool
 	{
 		DeleteGO(bullet);
@@ -184,7 +183,7 @@ void Game::Update()
 				
 			}
 		}
-			if (m_s->gekihacount >= 10 && m_s->Bossgekiha == 1) {
+			if (gekihacount >= 10 && Bossgekiha == 1) {
 
 				Clear = true;
 

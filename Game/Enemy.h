@@ -12,6 +12,8 @@ public:
 	int m_timer = 0;
 	Player *m_player;
 	Score* m_s;
+	
+	int EHP = 10;
 	prefab::CSoundSource* m_sound;
 	prefab::CEffect* m_effect;
 	prefab::CSkinModelRender* m_Modelrender = nullptr;
