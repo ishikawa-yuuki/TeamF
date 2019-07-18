@@ -54,12 +54,15 @@ void Enemy::Update()
 	CVector3 dikk = m_player->m_position - m_position;
 	if (dikk.Length() < 50.0f) {
 		Game* game = FindGO<Game>("Game");
+		Score* m_s = FindGO<Score>("Score");
 		m_sound = NewGO<prefab::CSoundSource>(0);
 		m_sound->Init(L"sound/bakuhatu.wav");
 		m_sound->Play(false);
 		m_effect = NewGO<prefab::CEffect>(0);
 		m_effect->Play(L"effect/baku.efk");
 		m_sound->SetVolume(0.2f);
+		m_s->gekihacount++;
+		m_s->m_score += 200;
 		m_effect->SetPosition(m_position);
 		game->RemoveenemyFromList(this);
 		DeleteGO(this);

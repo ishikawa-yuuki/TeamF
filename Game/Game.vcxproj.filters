@@ -71,19 +71,10 @@
     <MeshContentTask Include="Assets\modelData\Bullet.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\BOSS.fbx">
-      <Filter>Assets\modelData</Filter>
-    </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Tama.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\box.fbx">
-      <Filter>Assets\modelData</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\ene.fbx">
-      <Filter>Assets\modelData</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\ene2.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\taiF.fbx">

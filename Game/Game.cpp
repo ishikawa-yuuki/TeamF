@@ -19,25 +19,26 @@ Game::Game()
 
 Game::~Game()
 {
-	for (auto& m_enemy : m_enemyList) {
-		DeleteGO(m_enemy);
+	for (auto& enemy : m_enemyList) {
+		DeleteGO(enemy);
 	}
 
-	/*for (auto& m_enemy2 : m_enemy2List) {
-		DeleteGO(m_enemy2);
-	}*/
-
-	for (auto& m_enemy3 : m_enemy3List) {
-		DeleteGO(m_enemy3);
+	for (auto& enemy2 : m_enemy2List) {
+		DeleteGO(enemy2);
 	}
 
-	for (auto& m_boss : m_bossList) {
-		DeleteGO(m_boss);
+	for (auto& enemy3 : m_enemy3List) {
+		DeleteGO(enemy3);
+	}
+
+	for (auto& boss : m_bossList) {
+		DeleteGO(boss);
 	}
 
 	for (auto& m_item : m_itemList) {
 		DeleteGO(m_item);
 	}
+
 	DeleteGO(m_camera);
 	DeleteGO(m_player);
 	DeleteGO(m_sky);
@@ -45,6 +46,7 @@ Game::~Game()
 	DeleteGO(m_player->m_hp);
 	DeleteGO(m_player->m_hpber);
 	DeleteGO(m_sound);
+
 	QueryGOs<Bullet>("Pbullet", [](Bullet* bullet)->bool
 	{
 		DeleteGO(bullet);
@@ -83,7 +85,6 @@ bool Game::Start()
 		}
 		if (objData.EqualObjectName(L"hune") == true) {
 			Enemy3* enemy3 = NewGO<Enemy3>(0);
-			//Enemy2* enemy3 = NewGO<Enemy2>(0);
 			enemy3->m_position = objData.position;
 			enemy3->m_rotation = objData.rotation;
 			enemy3->m_scale = objData.scale;
@@ -181,11 +182,11 @@ void Game::Update()
 				
 			}
 		}
-			if (gekihacount >= 10 && Bossgekiha == 1) {
+			if (m_s->gekihacount >= 10 && m_s->Bossgekiha >= 1) {
 
 				Clear = true;
 
-				//DeleteGO(m_sound);
+				DeleteGO(m_sound);
 				m_sound = NewGO<prefab::CSoundSource>(0);
 				m_sound->Init(L"sound/clea.wav");
 				m_sound->Play(false);
