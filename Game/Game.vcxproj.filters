@@ -163,6 +163,9 @@
     <Media Include="Assets\sound\heal02.wav">
       <Filter>Assets\sound</Filter>
     </Media>
+    <Media Include="Assets\sound\cursor.wav">
+      <Filter>Assets\sound</Filter>
+    </Media>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\effect\Star.png">

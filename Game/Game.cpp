@@ -181,7 +181,7 @@ void Game::Update()
 				
 			}
 		}
-			if (gekihacount >= 10 && Bossgekiha == 1) {
+			if (m_s->Bossgekiha == 1) {
 
 				Clear = true;
 

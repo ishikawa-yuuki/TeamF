@@ -25,7 +25,7 @@ Title::Title()
 Title::~Title()
 {
 	DeleteGO(m_spriterender);
-	
+
 }
 
 bool Title::Start()
@@ -48,11 +48,15 @@ void Title::Update()
 	
 	if (Pad(0).IsTrigger(enButtonDown) == true) {//下キーが押されていたら選択状態を一つ下げる
 		NowSelect = (NowSelect + 1) % Menu_Num;
-		
+		m_soun = NewGO<prefab::CSoundSource>(0);
+		m_soun->Init(L"sound/cursor.wav");
+		m_soun->Play(false);
 	}
 	if (Pad(0).IsTrigger(enButtonUp) == true){//上キーが押されていたら選択状態を一つ上げる 
 		NowSelect = (NowSelect + (Menu_Num - 1)) % Menu_Num; 
-
+		m_soun = NewGO<prefab::CSoundSource>(0);
+		m_soun->Init(L"sound/cursor.wav");
+		m_soun->Play(false);
 	}
 	if (Pad(0).IsPress(enButtonA) == true) {//エンターキーが押されていたら
 		switch (NowSelect)                  //現在選択中の状態によって処理を分岐
