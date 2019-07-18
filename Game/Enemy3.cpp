@@ -14,6 +14,7 @@ Enemy3::Enemy3()
 Enemy3::~Enemy3()
 {
 	DeleteGO(m_Modelrender);
+	
 }
 
 bool Enemy3::Start()

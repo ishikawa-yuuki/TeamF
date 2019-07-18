@@ -1,4 +1,5 @@
 #pragma once
+class Result;
 class Title : public IGameObject
 {
 public:
@@ -15,5 +16,6 @@ public:
 	prefab::CFontRender* m_fontRender = nullptr;
 	void PostRender(CRenderContext& rc) override;
 	CVector2 m_position = CVector2::Zero;
+	Result* result;
 };
 

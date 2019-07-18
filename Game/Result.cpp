@@ -14,12 +14,49 @@ Result::Result()
 	//m_score = NewGO<prefab::CFontRender>(0);
 	game = FindGO<Game>("Game", false);
 	m_s = FindGO<Score>("Score", false);
+
+	CVector3 C;
+	C.x = 300.0f;
+	C.y = -100.0f;
+
+	if (m_s->gekihacount <= 8)
+	{
+
+		m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
+		m_Cspriterender->Init(L"sprite/C.dds", 300.0f, 400.0f);
+		m_Cspriterender->SetPosition(C);
+	}
+
+	else if (m_s->gekihacount <= 9 || m_s->gekihacount <= 10 || m_s->gekihacount <= 11)
+	{
+
+		m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
+		m_Cspriterender->Init(L"sprite/B.dds", 300.0f, 400.0f);
+		m_Cspriterender->SetPosition(C);
+	}
+	else if (m_s->gekihacount <= 12 || m_s->gekihacount <= 13)
+	{
+
+		m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
+		m_Cspriterender->Init(L"sprite/A.dds", 300.0f, 400.0f);
+		m_Cspriterender->SetPosition(C);
+	}
+
+	else if (m_s->gekihacount == 14 && game->Bossgekiha <= 1)
+	{
+
+		m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
+		m_Cspriterender->Init(L"sprite/S.dds", 300.0f, 400.0f);
+		m_Cspriterender->SetPosition(C);
+	}
+
+
 }
 
 
 Result::~Result()
 {
-	
+
 	DeleteGO(m_spriterender);
 	DeleteGO(m_s);
 	DeleteGO(m_Cspriterender);
@@ -33,14 +70,11 @@ void Result::Update()
 	m_score->SetPosition({ -450.0f,-10.0f });
 	m_score->SetScale(1.5f);
 	*/
-
-
-
+	
 	if (Pad(0).IsTrigger(enButtonB) == true)
 	{
 		NewGO<Title>(0);
 		DeleteGO(this);
-		DeleteGO(m_s);
 	}
 
 }
@@ -61,7 +95,7 @@ void Result::PostRender(CRenderContext& rc)
 	);
 	m_scoa.End(rc);
 	
-	swprintf(text, L"Œ‚”j”\n%d",  m_s->gekihacount);
+	swprintf(text, L"Œ‚”j”\n%d", m_s->gekihacount);
 	m_kazu.Begin(rc);
 	m_kazu.Draw(
 		text,
@@ -84,38 +118,4 @@ void Result::PostRender(CRenderContext& rc)
 	); 
 	m_sougou.End(rc);
 	
-	CVector3 C;
-	C.x = 300.0f;
-	C.y = -100.0f;
-
-		if (m_s->gekihacount <= 3&& m_Cspriterender ==nullptr)
-		{
-			
-			m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
-			m_Cspriterender->Init(L"sprite/C.dds", 300.0f, 400.0f);
-			m_Cspriterender->SetPosition(C);
-		}
-
-		else if (m_s->gekihacount <= 4 || m_s->gekihacount <= 5 || m_s->gekihacount <= 6)
-		{
-			
-			m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
-			m_Cspriterender->Init(L"sprite/B.dds", 300.0f, 400.0f);
-			m_Cspriterender->SetPosition(C);
-		}
-		else if (m_s->gekihacount <= 7 || m_s->gekihacount <= 8)
-		{
-			
-			m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
-			m_Cspriterender->Init(L"sprite/A.dds", 300.0f, 400.0f);
-			m_Cspriterender->SetPosition(C);
-		}
-
-		else if (m_s->gekihacount == 9 && m_s->Bossgekiha == 1)
-		{
-			
-			m_Cspriterender = NewGO< prefab::CSpriteRender>(0);
-			m_Cspriterender->Init(L"sprite/S.dds", 300.0f, 400.0f);
-			m_Cspriterender->SetPosition(C);
-		}
 }

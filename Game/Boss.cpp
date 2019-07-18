@@ -14,6 +14,7 @@ Boss::Boss()
 Boss::~Boss()
 {
 	DeleteGO(m_Modelrender);
+	
 }
 
 bool Boss::Start()

@@ -23,9 +23,9 @@ Game::~Game()
 		DeleteGO(m_enemy);
 	}
 
-	for (auto& m_enemy2 : m_enemy2List) {
+	/*for (auto& m_enemy2 : m_enemy2List) {
 		DeleteGO(m_enemy2);
-	}
+	}*/
 
 	for (auto& m_enemy3 : m_enemy3List) {
 		DeleteGO(m_enemy3);
@@ -181,7 +181,7 @@ void Game::Update()
 				
 			}
 		}
-			if (m_s->gekihacount >= 10 && m_s->Bossgekiha == 1) {
+			if (gekihacount >= 10 && Bossgekiha == 1) {
 
 				Clear = true;
 
