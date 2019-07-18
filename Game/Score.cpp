@@ -13,8 +13,7 @@ Score::Score()
 
 Score::~Score()
 {
-	DeleteGO(m_game);
-	
+	DeleteGO(m_game);	
 }
 
 void Score::Update()

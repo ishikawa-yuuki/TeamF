@@ -25,7 +25,7 @@ Title::Title()
 Title::~Title()
 {
 	DeleteGO(m_spriterender);
-
+	
 }
 
 bool Title::Start()
