@@ -79,7 +79,7 @@ void Enemy2::Update()
 			m_effect->Play(L"effect/baku.efk");
 			m_sound->SetVolume(0.2f);
 			m_effect->SetPosition(m_position);
-			m_s->gekihacount++;
+			m_s->gekihacount +=1;
 			//game->m_score += 200;
 			m_s->m_score += 200;
 			game->RemoveenemyFromList2(this);

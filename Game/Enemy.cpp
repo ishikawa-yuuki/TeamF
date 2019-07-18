@@ -90,7 +90,7 @@ void Enemy::Update()
 			m_effect->Play(L"effect/baku.efk");
 			m_sound->SetVolume(0.2f);
 			m_effect->SetPosition(m_position);
-			m_s->gekihacount++;
+			m_s->gekihacount += 1;
 			m_s->m_score += 100;
 			game->RemoveenemyFromList(this);
 			DeleteGO(this);

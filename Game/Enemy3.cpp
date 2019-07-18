@@ -84,7 +84,7 @@ void Enemy3::Update()
 		v.y = 0.5f;
 		v.z = 0.5f;*/
 		/*m_effect->SetScale(v);*/
-		m_s->gekihacount++;
+		m_s->gekihacount += 1;
 		//game->m_score += 200;
 		m_s->m_score += 200;
 		game->RemoveenemyFromList3(this);

@@ -2191,6 +2191,7 @@
     <Media Include="Assets\sound\bakuhatu.wav" />
     <Media Include="Assets\sound\bgm.wav" />
     <Media Include="Assets\sound\clea.wav" />
+    <Media Include="Assets\sound\cursor.wav" />
     <Media Include="Assets\sound\cyber.wav" />
     <Media Include="Assets\sound\damege.wav" />
     <Media Include="Assets\sound\gameover.wav" />
