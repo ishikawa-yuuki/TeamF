@@ -30,6 +30,21 @@ bool Enemy2::Start()
 void Enemy2::Update()
 {
 
+	CVector3 dikk = m_player->m_position - m_position;
+	if (dikk.Length() < 50.0f) {
+		Game* game = FindGO<Game>("Game");
+		m_sound = NewGO<prefab::CSoundSource>(0);
+		m_sound->Init(L"sound/bakuhatu.wav");
+		m_sound->Play(false);
+		m_effect = NewGO<prefab::CEffect>(0);
+		m_effect->Play(L"effect/baku.efk");
+		m_sound->SetVolume(0.2f);
+		m_effect->SetPosition(m_position);
+		game->RemoveenemyFromList2(this);
+		DeleteGO(this);
+		game->Nhp -= 5;
+	}
+
 	CVector3 diff = m_player->m_position - m_position;
 	if (diff.Length() < 1000.0f) {
 		diff.Normalize();
@@ -61,11 +76,6 @@ void Enemy2::Update()
 			m_effect->Play(L"effect/baku.efk");
 			m_sound->SetVolume(0.2f);
 			m_effect->SetPosition(m_position);
-			/*CVector3 v;ss
-			v.x = 0.1f;
-			v.y = 0.1f;
-			v.z = 0.1f;
-			m_effect->SetScale(v);*/
 			m_s->gekihacount++;
 			//game->m_score += 200;
 			m_s->m_score += 200;

@@ -13,10 +13,7 @@ Game::Game()
 	m_sky->SetScale({ SKY_TYOKKEI, SKY_TYOKKEI, SKY_TYOKKEI });
 	m_camera = NewGO<Camera>(0);
 	m_player = NewGO<Player>(0, "Player");
-	m_item = NewGO<Item>(0);
-	//m_power = NewGO<PowerItem>(0);
 	m_s = NewGO<Score>(0,"Score");
-	
 }
 
 
@@ -38,10 +35,12 @@ Game::~Game()
 		DeleteGO(m_boss);
 	}
 
+	for (auto& m_item : m_itemList) {
+		DeleteGO(m_item);
+	}
 	DeleteGO(m_camera);
 	DeleteGO(m_player);
 	DeleteGO(m_sky);
-	DeleteGO(m_item);
 	DeleteGO(m_spriteRender);
 	DeleteGO(m_player->m_hp);
 	DeleteGO(m_player->m_hpber);
@@ -98,6 +97,14 @@ bool Game::Start()
 			m_bossList.push_back(boss);
 			return true;
 		}
+		if (objData.EqualObjectName(L"box") == true) {
+			Item* m_item = NewGO<Item>(0);
+			m_item->m_position = objData.position;
+			m_item->m_rotation = objData.rotation;
+			m_item->m_scale = objData.scale;
+			m_itemList.push_back(m_item);
+			return true;
+		}
 		return false;
 	});
 	m_lightDir.Set(0.707f, 10.707f, 0.0f);
@@ -149,7 +156,7 @@ void Game::PostRender(CRenderContext& rc)
 void Game::Update()
 {
 	if (Clear == false && Over == false) {
-		if (Pad(0).IsTrigger(enButtonSelect) == true)
+		if (Pad(0).IsTrigger(enButtonB) == true)
 		{
 			
 			NewGO<Title>(0);

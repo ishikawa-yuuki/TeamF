@@ -9,25 +9,30 @@
           <PVA>
             <Velocity>
               <X>
-                <Center>0.1</Center>
-                <Max>0.1</Max>
-                <Min>0.1</Min>
+                <Center>0.05</Center>
+                <Max>0.05</Max>
+                <Min>0.05</Min>
               </X>
               <Y>
-                <Center>0.1</Center>
-                <Max>0.1</Max>
-                <Min>0.1</Min>
+                <Center>0.05</Center>
+                <Max>0.05</Max>
+                <Min>0.05</Min>
               </Y>
+              <Z>
+                <Center>0.05</Center>
+                <Max>0.05</Max>
+                <Min>0.05</Min>
+              </Z>
             </Velocity>
           </PVA>
         </ScalingValues>
         <RendererCommonValues>
-          <ColorTexture>Texture/AuroraRing.png</ColorTexture>
+          <ColorTexture>../../../tkTools/Effekseer132/Sample/00_Basic/Texture/Particle04_bokashistrong_soft.png</ColorTexture>
+          <AlphaBlend>2</AlphaBlend>
         </RendererCommonValues>
         <DrawingValues>
           <Sprite>
             <ColorAll_Fixed>
-              <R>200</R>
               <G>0</G>
               <B>0</B>
             </ColorAll_Fixed>
@@ -42,16 +47,39 @@
             <Name>Node</Name>
             <Children>
               <Node>
+                <LocationValues>
+                  <Type>1</Type>
+                </LocationValues>
+                <RotationValues>
+                  <Type>1</Type>
+                  <PVA>
+                    <Rotation>
+                      <X>
+                        <Center>90</Center>
+                        <Max>90</Max>
+                        <Min>90</Min>
+                      </X>
+                    </Rotation>
+                  </PVA>
+                </RotationValues>
                 <RendererCommonValues>
-                  <ColorTexture>Shockwave.png</ColorTexture>
+                  <ColorTexture>../../../tkTools/Effekseer132/Sample/01_NextSoft01/Texture/Aurora.png</ColorTexture>
+                  <AlphaBlend>2</AlphaBlend>
                 </RendererCommonValues>
                 <DrawingValues>
-                  <Sprite>
-                    <ColorAll_Fixed>
+                  <Type>4</Type>
+                  <Ring>
+                    <OuterColor_Fixed>
+                      <G>0</G>
+                    </OuterColor_Fixed>
+                    <CenterColor_Fixed>
                       <G>0</G>
                       <B>0</B>
-                    </ColorAll_Fixed>
-                  </Sprite>
+                    </CenterColor_Fixed>
+                    <InnerColor_Fixed>
+                      <B>0</B>
+                    </InnerColor_Fixed>
+                  </Ring>
                 </DrawingValues>
                 <Name>Node</Name>
                 <Children />
@@ -65,6 +93,6 @@
   <ToolVersion>1.32</ToolVersion>
   <Version>3</Version>
   <StartFrame>0</StartFrame>
-  <EndFrame>100</EndFrame>
+  <EndFrame>120</EndFrame>
   <IsLoop>True</IsLoop>
 </EffekseerProject>

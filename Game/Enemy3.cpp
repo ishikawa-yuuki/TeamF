@@ -40,8 +40,15 @@ void Enemy3::Update()
 	m_timer++;
 	if (diff.Length() < 1000.0f && m_timer >= 20) {
 		Bullet* bullet = NewGO<Bullet>(0, "Ebullet");
+		bullet = NewGO<Bullet>(0, "Ebullet");
 		bullet->m_position = m_position;
-		bullet->m_movespeed.z = -10.0f;
+		bullet->m_movespeed.x = -10.0f;
+		bullet->m_movespeed.z = -50.0f;
+
+		bullet = NewGO<Bullet>(0, "Ebullet");
+		bullet->m_position = m_position;
+		bullet->m_movespeed.x = 10.0f;
+		bullet->m_movespeed.z = -50.0f;
 
 		m_sound = NewGO<prefab::CSoundSource>(0);
 		m_sound->Init(L"sound/shoot.wav");

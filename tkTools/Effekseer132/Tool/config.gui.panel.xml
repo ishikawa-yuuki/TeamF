@@ -35,7 +35,7 @@
         <Content ID="0" RefID="3" />
       </Contents>
     </Pane>
-    <Pane ID="4" DockState="DockRight" ActiveContent="4">
+    <Pane ID="4" DockState="DockRight" ActiveContent="8">
       <Contents Count="3">
         <Content ID="0" RefID="4" />
         <Content ID="1" RefID="9" />
@@ -76,9 +76,9 @@
       <NestedPanes Count="6">
         <Pane ID="0" RefID="2" PrevPane="-1" Alignment="Bottom" Proportion="0.5" />
         <Pane ID="1" RefID="3" PrevPane="2" Alignment="Right" Proportion="0.65" />
-        <Pane ID="2" RefID="4" PrevPane="3" Alignment="Right" Proportion="0.597949922084808" />
-        <Pane ID="3" RefID="5" PrevPane="3" Alignment="Bottom" Proportion="0.5" />
-        <Pane ID="4" RefID="6" PrevPane="5" Alignment="Bottom" Proportion="0.450581401586533" />
+        <Pane ID="2" RefID="4" PrevPane="3" Alignment="Right" Proportion="0.531890690326691" />
+        <Pane ID="3" RefID="5" PrevPane="3" Alignment="Bottom" Proportion="0.706349194049835" />
+        <Pane ID="4" RefID="6" PrevPane="5" Alignment="Bottom" Proportion="0.559410989284515" />
         <Pane ID="5" RefID="7" PrevPane="2" Alignment="Bottom" Proportion="0.75" />
       </NestedPanes>
     </DockWindow>

@@ -70,6 +70,18 @@ public:
 			m_bossList.erase(it);
 		}
 	}
+
+	void RemoveenemyFromList5(Item* m_item)
+	{
+		std::vector<Item*>::iterator it = std::find(
+			m_itemList.begin(),
+			m_itemList.end(),
+			m_item
+		);
+		if (it != m_itemList.end()) {
+			m_itemList.erase(it);
+		}
+	}
 	void PostRender(CRenderContext& rc);
 	prefab::CDirectionLight*m_lig;
 	CVector3 m_lightDir;
@@ -77,6 +89,7 @@ public:
 	std::vector<Enemy2*> m_enemy2List;
 	std::vector<Enemy3*> m_enemy3List;
 	std::vector<Boss*> m_bossList;
+	std::vector<Item*> m_itemList;
 	prefab::CEffect* m_effect;
 	Player * m_player;
 	Enemy2* enemy2;

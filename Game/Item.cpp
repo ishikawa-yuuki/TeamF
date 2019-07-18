@@ -4,11 +4,6 @@
 #include "Player.h"
 Item::Item()
 {
-	m_modelrender = NewGO<prefab::CSkinModelRender>(0);
-	m_modelrender->Init(L"modelData/box.cmo");
-	m_position.x = 200.0f;
-	m_position.z = 700.0f;
-	m_modelrender->SetPosition(m_position);
 }
 
 
@@ -20,6 +15,12 @@ Item::~Item()
 bool Item::Start()
 {
 	m_player = FindGO<Player>("Player");
+
+	m_modelrender = NewGO<prefab::CSkinModelRender>(0);
+	m_modelrender->Init(L"modelData/box.cmo");
+	m_modelrender->SetPosition(m_position);
+	m_modelrender->SetScale(m_scale);
+	m_modelrender->SetRotation(m_rotation);
 	return true;
 }
 
@@ -35,8 +36,9 @@ void Item::Update()
 		m_effect = NewGO<prefab::CEffect>(0);
 		m_effect->Play(L"effect/heal.efk");
 		m_effect->SetPosition(m_position);
+		game->RemoveenemyFromList5(this);
+		DeleteGO(this);
 		game->Nhp += 10;
 		game->NHPkaba += 10;
-		DeleteGO(this);
 	}
 }

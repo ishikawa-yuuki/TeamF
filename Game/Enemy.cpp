@@ -60,11 +60,6 @@ void Enemy::Update()
 		m_effect->Play(L"effect/baku.efk");
 		m_sound->SetVolume(0.2f);
 		m_effect->SetPosition(m_position);
-		CVector3 v;
-		v.x = 0.1f;
-		v.y = 0.1f;
-		v.z = 0.1f;
-		m_effect->SetScale(v);
 		game->RemoveenemyFromList(this);
 		DeleteGO(this);
 		game->Nhp -= 5;
