@@ -44,7 +44,7 @@ Game::~Game()
 	DeleteGO(m_spriteRender);
 	DeleteGO(m_player->m_hp);
 	DeleteGO(m_player->m_hpber);
-	//DeleteGO(m_s);
+	DeleteGO(m_sound);
 	QueryGOs<Bullet>("Pbullet", [](Bullet* bullet)->bool
 	{
 		DeleteGO(bullet);
@@ -61,6 +61,7 @@ bool Game::Start()
 
 	m_sound = NewGO<prefab::CSoundSource>(0);
 	m_sound->Init(L"sound/cyber.wav");
+	m_sound->SetVolume(0.5f);
 	m_sound->Play(true);
 
 	m_level.Init(L"sora.tkl", [&](LevelObjectData& objData) {
@@ -184,7 +185,7 @@ void Game::Update()
 
 				Clear = true;
 
-				DeleteGO(m_sound);
+				//DeleteGO(m_sound);
 				m_sound = NewGO<prefab::CSoundSource>(0);
 				m_sound->Init(L"sound/clea.wav");
 				m_sound->Play(false);
@@ -203,7 +204,7 @@ void Game::Update()
 		
 		if (timer == 30) {
 			NewGO<Result>(0);
-			DeleteGO(m_sound);
+			//DeleteGO(m_sound);
 			DeleteGO(this);
 		}
 	}
