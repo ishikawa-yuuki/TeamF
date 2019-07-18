@@ -163,6 +163,7 @@ void Game::Update()
 			
 			NewGO<Title>(0);
 			DeleteGO(this);
+			DeleteGO(m_s);
 		}
 		if (Nhp <= 0) {
 			Over = true;
